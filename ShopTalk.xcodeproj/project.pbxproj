@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		811979991AEAACB5005AA3A5 /* MyMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */; };
 		811A55971AE728FA00721D0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A55961AE728FA00721D0D /* User.swift */; };
 		811A55991AE7B5AF00721D0D /* ParseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A55981AE7B5AF00721D0D /* ParseUtils.swift */; };
 		81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMessageTableViewCell.swift; sourceTree = "<group>"; };
 		811A55961AE728FA00721D0D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		811A55981AE7B5AF00721D0D /* ParseUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUtils.swift; sourceTree = "<group>"; };
 		81D6EFAC1AE52F3E000FDEC6 /* ShopTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +143,7 @@
 				81D6EFD11AE5CDA3000FDEC6 /* MessagesViewController.swift */,
 				81E9EC481AE5E23D00F262A5 /* Models */,
 				81E9EC421AE5D55700F262A5 /* ShopTalk-Bridging-Header.h */,
+				811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */,
 			);
 			path = ShopTalk;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				811A55971AE728FA00721D0D /* User.swift in Sources */,
 				811A55991AE7B5AF00721D0D /* ParseUtils.swift in Sources */,
 				81D6EFB41AE52F3E000FDEC6 /* ContactViewController.swift in Sources */,
+				811979991AEAACB5005AA3A5 /* MyMessageTableViewCell.swift in Sources */,
 				81E9EC441AE5DEBE00F262A5 /* Message.swift in Sources */,
 				81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */,
 			);

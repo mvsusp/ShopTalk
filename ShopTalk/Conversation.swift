@@ -26,7 +26,12 @@ class Conversation : PFObject, PFSubclassing {
   }
 
   func otherUsers(user: User) -> [User] {
-    return people.filter({(p) in p != user})
+    self.fetchIfNeeded()
+    var others = people.filter({(p) in p != user})
+    for other in others {
+      other.fetchIfNeeded()
+    }
+    return others
   }
   
   func isEmpty() -> Bool {

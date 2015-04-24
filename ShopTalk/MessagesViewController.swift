@@ -1,19 +1,54 @@
 import UIKit
 
-class MessagesViewController: UIViewController {
+class MessagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   var conversation : Conversation?
   var user : User?
+  var messages : [Message] = []
   
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-  
+  @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var messageTextField: UITextField!
+  
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.tableView.delegate = self
+    self.tableView.dataSource = self
+    
     self.title = conversation!.otherUsers(user!).first!.username
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    
+    conversation!.messages.query()?.orderByAscending("createdAt").findObjectsInBackgroundWithBlock() {
+      (objects, error) in
+      self.messages = objects as! [Message]
+      self.messages.append(self.conversation!.lastMessage!)
+      self.tableView.reloadData()
+    }
+  }
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return messages.count
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let message = self.messages[indexPath.row]
+    
+    if message.author == user! {
+      var cell = tableView.dequeueReusableCellWithIdentifier("MyMessageCell") as! MyMessageTableViewCell
+      
+      cell.content.text = message.content
+      
+      return cell
+    }
+    
+    var cell = tableView.dequeueReusableCellWithIdentifier("TheyMessageCell") as! UITableViewCell
+    
+    cell.textLabel!.text = message.content
+    
+    return cell
   }
   
   override func didReceiveMemoryWarning() {
@@ -42,9 +77,11 @@ class MessagesViewController: UIViewController {
   
   @IBAction func sendButtonPressed(sender: UIBarButtonItem) {
     messageTextField.resignFirstResponder()
-    if let message = messageTextField.text {
-      Message.send(user!, body: message, conversation: conversation!)
+    if let messageBody = messageTextField.text {
+      let message = Message.send(user!, body: messageBody, conversation: conversation!)
         messageTextField.text = ""
+        messages.append(message)
+        self.tableView.reloadData()
     }
   }
   

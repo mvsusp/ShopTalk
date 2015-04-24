@@ -15,7 +15,7 @@ class Message : PFObject, PFSubclassing {
     var message = Message()
     message.content = body
     message.author = author
-    message.save()
+    message.saveInBackground()
     
     
     conversation.addMessage(message)

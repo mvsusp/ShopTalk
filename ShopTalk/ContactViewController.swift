@@ -46,7 +46,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     var cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! UITableViewCell
     var conversation = self.conversations[indexPath.row]
-    cell.textLabel?.text = conversation.lastMessage!.author.username
+    cell.textLabel?.text = conversation.otherUsers(self.user!).first!.username
     cell.detailTextLabel?.text = conversation.lastMessage!.content
     return cell
   }

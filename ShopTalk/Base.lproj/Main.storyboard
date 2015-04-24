@@ -77,25 +77,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Bb4-vu-nRd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Bb4-vu-nRd">
                                 <rect key="frame" x="1" y="64" width="599" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyMessageCell" textLabel="7gc-hA-BhI" style="IBUITableViewCellStyleDefault" id="Mma-Ag-8Rx">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyMessageCell" id="Mma-Ag-8Rx" customClass="MyMessageTableViewCell" customModule="ShopTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="599" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mma-Ag-8Rx" id="D1J-l0-Ymz">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" tableViewCell="Mma-Ag-8Rx" id="D1J-l0-Ymz">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7gc-hA-BhI">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Test" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4x-y1-BKt" userLabel="Content">
+                                                    <rect key="frame" x="14" y="14" width="571" height="21"/>
+                                                    <color key="backgroundColor" red="0.42716632490000001" green="0.71093422610000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" priority="250" constant="40" id="ZUw-KG-t9a"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.42716632490000001" green="0.71093422610000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="m4x-y1-BKt" firstAttribute="top" secondItem="D1J-l0-Ymz" secondAttribute="topMargin" constant="6" id="1iJ-q6-R8L"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="m4x-y1-BKt" secondAttribute="bottom" constant="6" id="66e-uP-2vt"/>
+                                                <constraint firstItem="m4x-y1-BKt" firstAttribute="leading" secondItem="D1J-l0-Ymz" secondAttribute="leadingMargin" constant="6" id="IlT-TP-JGx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="m4x-y1-BKt" secondAttribute="trailing" constant="6" id="R2b-md-lYy"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="66e-uP-2vt"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="content" destination="m4x-y1-BKt" id="6us-fU-R7E"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TheyMessageCell" textLabel="6lN-t1-Wev" style="IBUITableViewCellStyleDefault" id="qdx-C0-2kJ" userLabel="TheyMessageCell">
                                         <rect key="frame" x="0.0" y="0.0" width="599" height="44"/>
@@ -153,6 +170,7 @@
                         <outlet property="bottomConstraint" destination="tJ9-Mf-Qoc" id="Bnx-L3-Ohy"/>
                         <outlet property="messageTextField" destination="RhK-3R-G9o" id="eq3-d4-izJ"/>
                         <outlet property="navigationItem" destination="UQO-g9-Coz" id="lI9-GS-Zp1"/>
+                        <outlet property="tableView" destination="Bb4-vu-nRd" id="QYt-DW-8Jr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0WK-8m-Niu" userLabel="First Responder" sceneMemberID="firstResponder"/>
