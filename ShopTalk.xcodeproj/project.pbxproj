@@ -1,0 +1,531 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		811A55971AE728FA00721D0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A55961AE728FA00721D0D /* User.swift */; };
+		811A55991AE7B5AF00721D0D /* ParseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A55981AE7B5AF00721D0D /* ParseUtils.swift */; };
+		81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */; };
+		81D6EFB41AE52F3E000FDEC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB31AE52F3E000FDEC6 /* ContactViewController.swift */; };
+		81D6EFB71AE52F3E000FDEC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D6EFB51AE52F3E000FDEC6 /* Main.storyboard */; };
+		81D6EFB91AE52F3E000FDEC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D6EFB81AE52F3E000FDEC6 /* Images.xcassets */; };
+		81D6EFBC1AE52F3E000FDEC6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D6EFBA1AE52F3E000FDEC6 /* LaunchScreen.xib */; };
+		81D6EFC81AE52F3E000FDEC6 /* ShopTalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFC71AE52F3E000FDEC6 /* ShopTalkTests.swift */; };
+		81D6EFD21AE5CDA3000FDEC6 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFD11AE5CDA3000FDEC6 /* MessagesViewController.swift */; };
+		81D6EFD41AE5D0A6000FDEC6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFD31AE5D0A6000FDEC6 /* Parse.framework */; };
+		81D6EFD61AE5D0BA000FDEC6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFD51AE5D0BA000FDEC6 /* Bolts.framework */; };
+		81D6EFD81AE5D114000FDEC6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFD71AE5D114000FDEC6 /* AudioToolbox.framework */; };
+		81D6EFDA1AE5D120000FDEC6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFD91AE5D120000FDEC6 /* CFNetwork.framework */; };
+		81D6EFDC1AE5D129000FDEC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFDB1AE5D129000FDEC6 /* CoreGraphics.framework */; };
+		81D6EFDE1AE5D130000FDEC6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFDD1AE5D130000FDEC6 /* CoreLocation.framework */; };
+		81D6EFE01AE5D139000FDEC6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFDF1AE5D139000FDEC6 /* MobileCoreServices.framework */; };
+		81D6EFE21AE5D141000FDEC6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFE11AE5D141000FDEC6 /* QuartzCore.framework */; };
+		81D6EFE41AE5D14A000FDEC6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFE31AE5D14A000FDEC6 /* Security.framework */; };
+		81D6EFE61AE5D152000FDEC6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFE51AE5D152000FDEC6 /* StoreKit.framework */; };
+		81D6EFE81AE5D15C000FDEC6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFE71AE5D15C000FDEC6 /* SystemConfiguration.framework */; };
+		81D6EFEA1AE5D169000FDEC6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFE91AE5D169000FDEC6 /* libz.dylib */; };
+		81D6EFEC1AE5D177000FDEC6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFEB1AE5D177000FDEC6 /* libsqlite3.dylib */; };
+		81D6EFF11AE5D465000FDEC6 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFF01AE5D465000FDEC6 /* Conversation.swift */; };
+		81E9EC441AE5DEBE00F262A5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E9EC431AE5DEBE00F262A5 /* Message.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		81D6EFC21AE52F3E000FDEC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81D6EFA41AE52F3E000FDEC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81D6EFAB1AE52F3E000FDEC6;
+			remoteInfo = ShopTalk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		811A55961AE728FA00721D0D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		811A55981AE7B5AF00721D0D /* ParseUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUtils.swift; sourceTree = "<group>"; };
+		81D6EFAC1AE52F3E000FDEC6 /* ShopTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81D6EFB01AE52F3E000FDEC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		81D6EFB31AE52F3E000FDEC6 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		81D6EFB61AE52F3E000FDEC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		81D6EFB81AE52F3E000FDEC6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		81D6EFBB1AE52F3E000FDEC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		81D6EFC11AE52F3E000FDEC6 /* ShopTalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopTalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81D6EFC61AE52F3E000FDEC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81D6EFC71AE52F3E000FDEC6 /* ShopTalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTalkTests.swift; sourceTree = "<group>"; };
+		81D6EFD11AE5CDA3000FDEC6 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		81D6EFD31AE5D0A6000FDEC6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		81D6EFD51AE5D0BA000FDEC6 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		81D6EFD71AE5D114000FDEC6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		81D6EFD91AE5D120000FDEC6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		81D6EFDB1AE5D129000FDEC6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		81D6EFDD1AE5D130000FDEC6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		81D6EFDF1AE5D139000FDEC6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		81D6EFE11AE5D141000FDEC6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		81D6EFE31AE5D14A000FDEC6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		81D6EFE51AE5D152000FDEC6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		81D6EFE71AE5D15C000FDEC6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		81D6EFE91AE5D169000FDEC6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		81D6EFEB1AE5D177000FDEC6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		81D6EFF01AE5D465000FDEC6 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		81E9EC421AE5D55700F262A5 /* ShopTalk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShopTalk-Bridging-Header.h"; sourceTree = "<group>"; };
+		81E9EC431AE5DEBE00F262A5 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		81D6EFA91AE52F3E000FDEC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D6EFEC1AE5D177000FDEC6 /* libsqlite3.dylib in Frameworks */,
+				81D6EFEA1AE5D169000FDEC6 /* libz.dylib in Frameworks */,
+				81D6EFE81AE5D15C000FDEC6 /* SystemConfiguration.framework in Frameworks */,
+				81D6EFE61AE5D152000FDEC6 /* StoreKit.framework in Frameworks */,
+				81D6EFE41AE5D14A000FDEC6 /* Security.framework in Frameworks */,
+				81D6EFE21AE5D141000FDEC6 /* QuartzCore.framework in Frameworks */,
+				81D6EFE01AE5D139000FDEC6 /* MobileCoreServices.framework in Frameworks */,
+				81D6EFDE1AE5D130000FDEC6 /* CoreLocation.framework in Frameworks */,
+				81D6EFDC1AE5D129000FDEC6 /* CoreGraphics.framework in Frameworks */,
+				81D6EFDA1AE5D120000FDEC6 /* CFNetwork.framework in Frameworks */,
+				81D6EFD81AE5D114000FDEC6 /* AudioToolbox.framework in Frameworks */,
+				81D6EFD41AE5D0A6000FDEC6 /* Parse.framework in Frameworks */,
+				81D6EFD61AE5D0BA000FDEC6 /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81D6EFBE1AE52F3E000FDEC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		81D6EFA31AE52F3E000FDEC6 = {
+			isa = PBXGroup;
+			children = (
+				81D6EFEB1AE5D177000FDEC6 /* libsqlite3.dylib */,
+				81D6EFE91AE5D169000FDEC6 /* libz.dylib */,
+				81E9EC471AE5E22400F262A5 /* Lib */,
+				81D6EFAE1AE52F3E000FDEC6 /* ShopTalk */,
+				81D6EFC41AE52F3E000FDEC6 /* ShopTalkTests */,
+				81D6EFAD1AE52F3E000FDEC6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		81D6EFAD1AE52F3E000FDEC6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81D6EFAC1AE52F3E000FDEC6 /* ShopTalk.app */,
+				81D6EFC11AE52F3E000FDEC6 /* ShopTalkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81D6EFAE1AE52F3E000FDEC6 /* ShopTalk */ = {
+			isa = PBXGroup;
+			children = (
+				81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */,
+				81D6EFD31AE5D0A6000FDEC6 /* Parse.framework */,
+				81D6EFB31AE52F3E000FDEC6 /* ContactViewController.swift */,
+				81D6EFD51AE5D0BA000FDEC6 /* Bolts.framework */,
+				81D6EFB51AE52F3E000FDEC6 /* Main.storyboard */,
+				81D6EFB81AE52F3E000FDEC6 /* Images.xcassets */,
+				81D6EFBA1AE52F3E000FDEC6 /* LaunchScreen.xib */,
+				81D6EFAF1AE52F3E000FDEC6 /* Supporting Files */,
+				81D6EFD11AE5CDA3000FDEC6 /* MessagesViewController.swift */,
+				81E9EC481AE5E23D00F262A5 /* Models */,
+				81E9EC421AE5D55700F262A5 /* ShopTalk-Bridging-Header.h */,
+			);
+			path = ShopTalk;
+			sourceTree = "<group>";
+		};
+		81D6EFAF1AE52F3E000FDEC6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				81D6EFB01AE52F3E000FDEC6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		81D6EFC41AE52F3E000FDEC6 /* ShopTalkTests */ = {
+			isa = PBXGroup;
+			children = (
+				81D6EFC71AE52F3E000FDEC6 /* ShopTalkTests.swift */,
+				81D6EFC51AE52F3E000FDEC6 /* Supporting Files */,
+			);
+			path = ShopTalkTests;
+			sourceTree = "<group>";
+		};
+		81D6EFC51AE52F3E000FDEC6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				81D6EFC61AE52F3E000FDEC6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		81E9EC471AE5E22400F262A5 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				81D6EFE71AE5D15C000FDEC6 /* SystemConfiguration.framework */,
+				81D6EFE51AE5D152000FDEC6 /* StoreKit.framework */,
+				81D6EFE31AE5D14A000FDEC6 /* Security.framework */,
+				81D6EFE11AE5D141000FDEC6 /* QuartzCore.framework */,
+				81D6EFDF1AE5D139000FDEC6 /* MobileCoreServices.framework */,
+				81D6EFDD1AE5D130000FDEC6 /* CoreLocation.framework */,
+				81D6EFDB1AE5D129000FDEC6 /* CoreGraphics.framework */,
+				81D6EFD91AE5D120000FDEC6 /* CFNetwork.framework */,
+				81D6EFD71AE5D114000FDEC6 /* AudioToolbox.framework */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		81E9EC481AE5E23D00F262A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				81D6EFF01AE5D465000FDEC6 /* Conversation.swift */,
+				81E9EC431AE5DEBE00F262A5 /* Message.swift */,
+				811A55961AE728FA00721D0D /* User.swift */,
+				811A55981AE7B5AF00721D0D /* ParseUtils.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		81D6EFAB1AE52F3E000FDEC6 /* ShopTalk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81D6EFCB1AE52F3E000FDEC6 /* Build configuration list for PBXNativeTarget "ShopTalk" */;
+			buildPhases = (
+				81D6EFA81AE52F3E000FDEC6 /* Sources */,
+				81D6EFA91AE52F3E000FDEC6 /* Frameworks */,
+				81D6EFAA1AE52F3E000FDEC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShopTalk;
+			productName = ShopTalk;
+			productReference = 81D6EFAC1AE52F3E000FDEC6 /* ShopTalk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		81D6EFC01AE52F3E000FDEC6 /* ShopTalkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81D6EFCE1AE52F3E000FDEC6 /* Build configuration list for PBXNativeTarget "ShopTalkTests" */;
+			buildPhases = (
+				81D6EFBD1AE52F3E000FDEC6 /* Sources */,
+				81D6EFBE1AE52F3E000FDEC6 /* Frameworks */,
+				81D6EFBF1AE52F3E000FDEC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81D6EFC31AE52F3E000FDEC6 /* PBXTargetDependency */,
+			);
+			name = ShopTalkTests;
+			productName = ShopTalkTests;
+			productReference = 81D6EFC11AE52F3E000FDEC6 /* ShopTalkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		81D6EFA41AE52F3E000FDEC6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "marcio vinicius dos santos";
+				TargetAttributes = {
+					81D6EFAB1AE52F3E000FDEC6 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					81D6EFC01AE52F3E000FDEC6 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 81D6EFAB1AE52F3E000FDEC6;
+					};
+				};
+			};
+			buildConfigurationList = 81D6EFA71AE52F3E000FDEC6 /* Build configuration list for PBXProject "ShopTalk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 81D6EFA31AE52F3E000FDEC6;
+			productRefGroup = 81D6EFAD1AE52F3E000FDEC6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81D6EFAB1AE52F3E000FDEC6 /* ShopTalk */,
+				81D6EFC01AE52F3E000FDEC6 /* ShopTalkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		81D6EFAA1AE52F3E000FDEC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D6EFB71AE52F3E000FDEC6 /* Main.storyboard in Resources */,
+				81D6EFBC1AE52F3E000FDEC6 /* LaunchScreen.xib in Resources */,
+				81D6EFB91AE52F3E000FDEC6 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81D6EFBF1AE52F3E000FDEC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		81D6EFA81AE52F3E000FDEC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D6EFF11AE5D465000FDEC6 /* Conversation.swift in Sources */,
+				81D6EFD21AE5CDA3000FDEC6 /* MessagesViewController.swift in Sources */,
+				811A55971AE728FA00721D0D /* User.swift in Sources */,
+				811A55991AE7B5AF00721D0D /* ParseUtils.swift in Sources */,
+				81D6EFB41AE52F3E000FDEC6 /* ContactViewController.swift in Sources */,
+				81E9EC441AE5DEBE00F262A5 /* Message.swift in Sources */,
+				81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81D6EFBD1AE52F3E000FDEC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D6EFC81AE52F3E000FDEC6 /* ShopTalkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		81D6EFC31AE52F3E000FDEC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81D6EFAB1AE52F3E000FDEC6 /* ShopTalk */;
+			targetProxy = 81D6EFC21AE52F3E000FDEC6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		81D6EFB51AE52F3E000FDEC6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81D6EFB61AE52F3E000FDEC6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		81D6EFBA1AE52F3E000FDEC6 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81D6EFBB1AE52F3E000FDEC6 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		81D6EFC91AE52F3E000FDEC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		81D6EFCA1AE52F3E000FDEC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		81D6EFCC1AE52F3E000FDEC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShopTalk",
+				);
+				INFOPLIST_FILE = ShopTalk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ShopTalk/ShopTalk-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		81D6EFCD1AE52F3E000FDEC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShopTalk",
+				);
+				INFOPLIST_FILE = ShopTalk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ShopTalk/ShopTalk-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		81D6EFCF1AE52F3E000FDEC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShopTalkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShopTalk.app/ShopTalk";
+			};
+			name = Debug;
+		};
+		81D6EFD01AE52F3E000FDEC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShopTalkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShopTalk.app/ShopTalk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		81D6EFA71AE52F3E000FDEC6 /* Build configuration list for PBXProject "ShopTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81D6EFC91AE52F3E000FDEC6 /* Debug */,
+				81D6EFCA1AE52F3E000FDEC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81D6EFCB1AE52F3E000FDEC6 /* Build configuration list for PBXNativeTarget "ShopTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81D6EFCC1AE52F3E000FDEC6 /* Debug */,
+				81D6EFCD1AE52F3E000FDEC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81D6EFCE1AE52F3E000FDEC6 /* Build configuration list for PBXNativeTarget "ShopTalkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81D6EFCF1AE52F3E000FDEC6 /* Debug */,
+				81D6EFD01AE52F3E000FDEC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 81D6EFA41AE52F3E000FDEC6 /* Project object */;
+}
