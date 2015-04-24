@@ -115,30 +115,43 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uw7-Y1-lV7">
-                                <rect key="frame" x="14" y="564" width="576" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="fkV-VX-e3O"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1V7-Tz-rW5">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem width="1" style="plain" systemItem="fixedSpace" id="rpj-p0-Ebr"/>
+                                    <barButtonItem style="plain" id="r7g-T6-Sqj">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="RhK-3R-G9o" userLabel="messageTextField">
+                                            <rect key="frame" x="17" y="7" width="242" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem title="Send" id="2O5-9L-h3x">
+                                        <connections>
+                                            <action selector="sendButtonPressed:" destination="mpq-br-vkS" id="mlP-1N-rkb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="1" style="plain" systemItem="fixedSpace" id="y2q-Xp-W0v"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bb4-vu-nRd" firstAttribute="top" secondItem="vlJ-0S-9qf" secondAttribute="bottom" id="9ZX-AW-CCO"/>
                             <constraint firstItem="Bb4-vu-nRd" firstAttribute="top" secondItem="vlJ-0S-9qf" secondAttribute="bottom" id="HZv-U3-Re1"/>
                             <constraint firstAttribute="trailing" secondItem="Bb4-vu-nRd" secondAttribute="trailing" id="PER-wm-rI9"/>
-                            <constraint firstItem="DAn-HV-BIF" firstAttribute="top" secondItem="uw7-Y1-lV7" secondAttribute="bottom" constant="6" id="Pkf-YX-13Q"/>
-                            <constraint firstItem="uw7-Y1-lV7" firstAttribute="trailing" secondItem="m8B-Ho-VGq" secondAttribute="trailingMargin" constant="6" id="Vfz-MD-s5k"/>
-                            <constraint firstItem="uw7-Y1-lV7" firstAttribute="leadingMargin" secondItem="m8B-Ho-VGq" secondAttribute="leadingMargin" constant="6" id="lwB-Ub-XPB"/>
-                            <constraint firstItem="uw7-Y1-lV7" firstAttribute="top" secondItem="Bb4-vu-nRd" secondAttribute="bottom" constant="8" id="rdw-eE-xgD"/>
+                            <constraint firstItem="1V7-Tz-rW5" firstAttribute="top" secondItem="Bb4-vu-nRd" secondAttribute="bottom" id="fmO-Ih-QrW"/>
+                            <constraint firstAttribute="centerX" secondItem="1V7-Tz-rW5" secondAttribute="centerX" id="ko2-QR-euB"/>
+                            <constraint firstItem="DAn-HV-BIF" firstAttribute="top" secondItem="1V7-Tz-rW5" secondAttribute="bottom" id="tJ9-Mf-Qoc"/>
+                            <constraint firstAttribute="width" secondItem="1V7-Tz-rW5" secondAttribute="width" id="wh4-9g-5yw"/>
                             <constraint firstItem="Bb4-vu-nRd" firstAttribute="leadingMargin" secondItem="m8B-Ho-VGq" secondAttribute="leadingMargin" id="yhj-iv-omd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="navigation item" id="UQO-g9-Coz" userLabel="navigationItem"/>
                     <connections>
-                        <outlet property="messageFieldBottomConstraint" destination="Pkf-YX-13Q" id="0Xu-vz-MUv"/>
+                        <outlet property="bottomConstraint" destination="tJ9-Mf-Qoc" id="Bnx-L3-Ohy"/>
+                        <outlet property="messageTextField" destination="RhK-3R-G9o" id="eq3-d4-izJ"/>
                         <outlet property="navigationItem" destination="UQO-g9-Coz" id="lI9-GS-Zp1"/>
                     </connections>
                 </viewController>

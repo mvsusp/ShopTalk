@@ -5,7 +5,9 @@ class MessagesViewController: UIViewController {
   var conversation : Conversation?
   var user : User?
   
-  @IBOutlet weak var messageFieldBottomConstraint: NSLayoutConstraint!
+  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  
+  @IBOutlet weak var messageTextField: UITextField!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,7 +26,7 @@ class MessagesViewController: UIViewController {
     let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSTimeInterval
     
     UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-      self.messageFieldBottomConstraint.constant += keyboardSize
+      self.bottomConstraint.constant += keyboardSize
       
       }, completion: nil)
   }
@@ -32,9 +34,18 @@ class MessagesViewController: UIViewController {
   func keyboardWillHide(notification: NSNotification) {
     let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSTimeInterval
     UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-      self.messageFieldBottomConstraint.constant = 0
+      self.bottomConstraint.constant = 0
       
       }, completion: nil)
+  }
+
+  
+  @IBAction func sendButtonPressed(sender: UIBarButtonItem) {
+    messageTextField.resignFirstResponder()
+    if let message = messageTextField.text {
+      Message.send(user!, body: message, conversation: conversation!)
+        messageTextField.text = ""
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
