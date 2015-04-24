@@ -52,13 +52,4 @@ class Conversation : PFObject, PFSubclassing {
     conversation.save()
     return conversation
   }
-  
-//  func lastMessage(block: (Message) -> Void){
-//    var query = messages.query()!
-//    query.limit = 1
-//    query.findObjectsInBackgroundWithBlock() {
-//      (objects, error) in
-//      block(objects!.first! as! Message)
-//    }
-//  }
 }
