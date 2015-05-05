@@ -10,8 +10,6 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var messageTextField: UITextField!
   
-  
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tableView.delegate = self
@@ -26,7 +24,13 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
       self.messages = objects as! [Message]
       self.messages.append(self.conversation!.lastMessage!)
       self.tableView.reloadData()
+      self.scrollMessages(animated: false)
     }
+  }
+  
+  func scrollMessages(animated: Bool = true) {
+    let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)
+    tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: animated)
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,8 +66,10 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     
     UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
       self.bottomConstraint.constant += keyboardSize
-      
-      }, completion: nil)
+      }, completion: { (success) in
+        self.scrollMessages()
+      }
+    )
   }
   
   func keyboardWillHide(notification: NSNotification) {
@@ -74,14 +80,14 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
       }, completion: nil)
   }
 
-  
   @IBAction func sendButtonPressed(sender: UIBarButtonItem) {
-    messageTextField.resignFirstResponder()
     if let messageBody = messageTextField.text {
       let message = Message.send(user!, body: messageBody, conversation: conversation!)
         messageTextField.text = ""
         messages.append(message)
         self.tableView.reloadData()
+        self.scrollMessages()
+
     }
   }
   
