@@ -77,37 +77,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Bb4-vu-nRd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Bb4-vu-nRd">
                                 <rect key="frame" x="1" y="64" width="599" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyMessageCell" id="Mma-Ag-8Rx" customClass="MyMessageTableViewCell" customModule="ShopTalk" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyMessageCell" rowHeight="44" id="Mma-Ag-8Rx" customClass="MyMessageTableViewCell" customModule="ShopTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="599" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" tableViewCell="Mma-Ag-8Rx" id="D1J-l0-Ymz">
+                                        <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" multipleTouchEnabled="YES" contentMode="redraw" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" tableViewCell="Mma-Ag-8Rx" id="D1J-l0-Ymz">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Test" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4x-y1-BKt" userLabel="Content">
-                                                    <rect key="frame" x="14" y="14" width="571" height="21"/>
+                                                <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="6JG-jz-vEm">
+                                                    <rect key="frame" x="18" y="11" width="563" height="29"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Test" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4x-y1-BKt" userLabel="Content">
+                                                            <rect key="frame" x="3" y="3" width="557" height="21"/>
+                                                            <color key="backgroundColor" red="0.42716632490000001" green="0.71093422610000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" priority="250" constant="40" id="ZUw-KG-t9a"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <color key="backgroundColor" red="0.42716632490000001" green="0.71093422610000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" priority="250" constant="40" id="ZUw-KG-t9a"/>
+                                                        <constraint firstAttribute="trailing" secondItem="m4x-y1-BKt" secondAttribute="trailing" constant="3" id="Ays-OG-gIl"/>
+                                                        <constraint firstAttribute="bottom" secondItem="m4x-y1-BKt" secondAttribute="bottom" constant="5" id="I6d-6e-kKq"/>
+                                                        <constraint firstAttribute="height" constant="46" id="ImJ-RH-Qpu"/>
+                                                        <constraint firstItem="m4x-y1-BKt" firstAttribute="top" secondItem="6JG-jz-vEm" secondAttribute="top" constant="3" id="T62-2c-sHj"/>
+                                                        <constraint firstAttribute="bottom" secondItem="m4x-y1-BKt" secondAttribute="bottom" constant="3" id="rPi-2y-TTK"/>
+                                                        <constraint firstItem="m4x-y1-BKt" firstAttribute="leading" secondItem="6JG-jz-vEm" secondAttribute="leading" constant="3" id="xXz-c9-8y4"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="ImJ-RH-Qpu"/>
+                                                            <exclude reference="rPi-2y-TTK"/>
+                                                        </mask>
+                                                    </variation>
+                                                </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="m4x-y1-BKt" firstAttribute="top" secondItem="D1J-l0-Ymz" secondAttribute="topMargin" constant="6" id="1iJ-q6-R8L"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="m4x-y1-BKt" secondAttribute="bottom" constant="6" id="66e-uP-2vt"/>
-                                                <constraint firstItem="m4x-y1-BKt" firstAttribute="leading" secondItem="D1J-l0-Ymz" secondAttribute="leadingMargin" constant="6" id="IlT-TP-JGx"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="m4x-y1-BKt" secondAttribute="trailing" constant="6" id="R2b-md-lYy"/>
+                                                <constraint firstItem="6JG-jz-vEm" firstAttribute="bottom" secondItem="D1J-l0-Ymz" secondAttribute="bottomMargin" constant="10" id="5mf-d5-uVD"/>
+                                                <constraint firstItem="6JG-jz-vEm" firstAttribute="leading" secondItem="D1J-l0-Ymz" secondAttribute="leadingMargin" constant="10" id="OOJ-Zq-Zci"/>
+                                                <constraint firstItem="6JG-jz-vEm" firstAttribute="bottom" secondItem="D1J-l0-Ymz" secondAttribute="bottomMargin" priority="750" constant="-10" id="a0q-nF-CKB"/>
+                                                <constraint firstItem="6JG-jz-vEm" firstAttribute="top" secondItem="D1J-l0-Ymz" secondAttribute="topMargin" constant="3" id="vMh-QZ-aEc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6JG-jz-vEm" secondAttribute="trailing" constant="10" id="voz-Tx-WF9"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="66e-uP-2vt"/>
+                                                    <exclude reference="5mf-d5-uVD"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>

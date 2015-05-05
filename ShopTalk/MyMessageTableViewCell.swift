@@ -6,9 +6,9 @@ class MyMessageTableViewCell: UITableViewCell {
   @IBOutlet weak var content: UILabel!
   override func awakeFromNib() {
     super.awakeFromNib()
-    content.layer.cornerRadius = 3.0
+//    content.layer.cornerRadius = 3.0
 //    content.layer.
-    content.clipsToBounds = true
+//    content.clipsToBounds = true
     // Initialization code
   }
   

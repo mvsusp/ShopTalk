@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		811979991AEAACB5005AA3A5 /* MyMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */; };
 		811A55971AE728FA00721D0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A55961AE728FA00721D0D /* User.swift */; };
-		811A55991AE7B5AF00721D0D /* ParseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A55981AE7B5AF00721D0D /* ParseUtils.swift */; };
 		81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */; };
 		81D6EFB41AE52F3E000FDEC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB31AE52F3E000FDEC6 /* ContactViewController.swift */; };
 		81D6EFB71AE52F3E000FDEC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D6EFB51AE52F3E000FDEC6 /* Main.storyboard */; };
@@ -47,7 +46,6 @@
 /* Begin PBXFileReference section */
 		811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMessageTableViewCell.swift; sourceTree = "<group>"; };
 		811A55961AE728FA00721D0D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		811A55981AE7B5AF00721D0D /* ParseUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUtils.swift; sourceTree = "<group>"; };
 		81D6EFAC1AE52F3E000FDEC6 /* ShopTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D6EFB01AE52F3E000FDEC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 				81D6EFF01AE5D465000FDEC6 /* Conversation.swift */,
 				81E9EC431AE5DEBE00F262A5 /* Message.swift */,
 				811A55961AE728FA00721D0D /* User.swift */,
-				811A55981AE7B5AF00721D0D /* ParseUtils.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -303,7 +300,6 @@
 				81D6EFF11AE5D465000FDEC6 /* Conversation.swift in Sources */,
 				81D6EFD21AE5CDA3000FDEC6 /* MessagesViewController.swift in Sources */,
 				811A55971AE728FA00721D0D /* User.swift in Sources */,
-				811A55991AE7B5AF00721D0D /* ParseUtils.swift in Sources */,
 				81D6EFB41AE52F3E000FDEC6 /* ContactViewController.swift in Sources */,
 				811979991AEAACB5005AA3A5 /* MyMessageTableViewCell.swift in Sources */,
 				81E9EC441AE5DEBE00F262A5 /* Message.swift in Sources */,

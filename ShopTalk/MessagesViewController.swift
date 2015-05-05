@@ -33,6 +33,24 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: animated)
   }
   
+  func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    let message = self.messages[indexPath.row]
+    
+    if message.author == user! {
+      var cell = tableView.dequeueReusableCellWithIdentifier("MyMessageCell") as! MyMessageTableViewCell
+      
+      cell.content.text = message.content
+      
+      return cell.content.layer.bounds.height
+    }
+    
+    var cell = tableView.dequeueReusableCellWithIdentifier("TheyMessageCell") as! UITableViewCell
+    
+    cell.textLabel!.text = message.content
+    
+    return cell.layer.bounds.height
+  }
+  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return messages.count
   }
@@ -71,6 +89,8 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
       }
     )
   }
+  
+  
   
   func keyboardWillHide(notification: NSNotification) {
     let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSTimeInterval
