@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		811979991AEAACB5005AA3A5 /* MyMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */; };
 		811A55971AE728FA00721D0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A55961AE728FA00721D0D /* User.swift */; };
+		814D000D1AF9992D00154A60 /* TheyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814D000C1AF9992D00154A60 /* TheyMessageCell.swift */; };
 		81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */; };
 		81D6EFB41AE52F3E000FDEC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB31AE52F3E000FDEC6 /* ContactViewController.swift */; };
 		81D6EFB71AE52F3E000FDEC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D6EFB51AE52F3E000FDEC6 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMessageTableViewCell.swift; sourceTree = "<group>"; };
 		811A55961AE728FA00721D0D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		814D000C1AF9992D00154A60 /* TheyMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheyMessageCell.swift; sourceTree = "<group>"; };
 		81D6EFAC1AE52F3E000FDEC6 /* ShopTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D6EFB01AE52F3E000FDEC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				81E9EC481AE5E23D00F262A5 /* Models */,
 				81E9EC421AE5D55700F262A5 /* ShopTalk-Bridging-Header.h */,
 				811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */,
+				814D000C1AF9992D00154A60 /* TheyMessageCell.swift */,
 			);
 			path = ShopTalk;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				811979991AEAACB5005AA3A5 /* MyMessageTableViewCell.swift in Sources */,
 				81E9EC441AE5DEBE00F262A5 /* Message.swift in Sources */,
 				81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */,
+				814D000D1AF9992D00154A60 /* TheyMessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

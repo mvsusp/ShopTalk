@@ -23,22 +23,22 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
       (objects, error) in
       self.messages = objects as! [Message]
       self.messages.append(self.conversation!.lastMessage!)
-//      self.tableView.reloadData()
+      //      self.tableView.reloadData()
       let paths = map(0..<self.messages.count, {(x) in NSIndexPath(forRow: x, inSection: 0) })
       
-//      self.tableView.beginUpdates()
+      //      self.tableView.beginUpdates()
       self.tableView.insertRowsAtIndexPaths(paths, withRowAnimation: UITableViewRowAnimation.Automatic)
-//      self.tableView.endUpdates()
-//      self.scrollMessages(animated: false)
-            self.tableView.reloadData()
-
-//      self.tableView.selectRowAtIndexPath(paths.last!, animated: true, scrollPosition: UITableViewScrollPosition.Bottom)
+      //      self.tableView.endUpdates()
+      //      self.scrollMessages(animated: false)
+      self.tableView.reloadData()
       
-//      if self.tableView.contentSize.height > self.tableView.frame.size.height
-//      {
-//        let offset = CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height)
-//        self.tableView.setContentOffset(offset, animated: false)
-//      }
+      //      self.tableView.selectRowAtIndexPath(paths.last!, animated: true, scrollPosition: UITableViewScrollPosition.Bottom)
+      
+      //      if self.tableView.contentSize.height > self.tableView.frame.size.height
+      //      {
+      //        let offset = CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height)
+      //        self.tableView.setContentOffset(offset, animated: false)
+      //      }
       
       self.scrollMessages(animated: true)
     }
@@ -48,49 +48,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)
     tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: animated)
   }
-//  
-//  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//    let message = self.messages[indexPath.row]
-//    
-//    if message.author == user! {
-//      var cell = tableView.dequeueReusableCellWithIdentifier("MyMessageCell") as! MyMessageTableViewCell
-//      
-//      cell.content.text = message.content
-//      
-//      return cell.content.layer.bounds.height
-//    }
-//    
-//    var cell = tableView.dequeueReusableCellWithIdentifier("TheyMessageCell") as! UITableViewCell
-//    
-//    cell.textLabel!.text = message.content
-//    
-//    return cell.layer.bounds.height
-//  }
-//  
-//  func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//    let message = self.messages[indexPath.row]
-//    
-//    if message.author == user! {
-//      var cell = tableView.dequeueReusableCellWithIdentifier("MyMessageCell") as! MyMessageTableViewCell
-//      
-//      cell.content.text = message.content
-//      
-//      return cell.content.layer.bounds.height
-//      
-//      let size = CGSizeMake(cell.layer.bounds.width, CGFloat.max)
-//      let rectSize = NSString(string: message.content).boundingRectWithSize(
-//        size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [], context: nil)
-//      
-//      return ceil(rectSize.size.height) + 1 + VERTICAL_CELL_PADDING;
-//    }
-//    
-//    var cell = tableView.dequeueReusableCellWithIdentifier("TheyMessageCell") as! UITableViewCell
-//    
-//    cell.textLabel!.text = message.content
-//    
-//    return cell.layer.bounds.height
-//  }
-//
+  
   func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     let message = self.messages[indexPath.row]
     
@@ -102,9 +60,9 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
       return cell.content.layer.bounds.height
     }
     
-    var cell = tableView.dequeueReusableCellWithIdentifier("TheyMessageCell") as! UITableViewCell
+    var cell = tableView.dequeueReusableCellWithIdentifier("TheyMessageCell") as! TheyMessageCell
     
-    cell.textLabel!.text = message.content
+    cell.content.text = message.content
     
     return cell.layer.bounds.height
   }
@@ -124,9 +82,9 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
       return cell
     }
     
-    var cell = tableView.dequeueReusableCellWithIdentifier("TheyMessageCell") as! UITableViewCell
+    var cell = tableView.dequeueReusableCellWithIdentifier("TheyMessageCell") as! TheyMessageCell
     
-    cell.textLabel!.text = message.content
+    cell.content.text = message.content
     
     return cell
   }
@@ -157,16 +115,16 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
       
       }, completion: nil)
   }
-
+  
   @IBAction func sendButtonPressed(sender: UIBarButtonItem) {
     if let messageBody = messageTextField.text {
       let message = Message.send(user!, body: messageBody, conversation: conversation!)
-        messageTextField.text = ""
-        messages.append(message)
-        let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)!
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-        self.scrollMessages()
-
+      messageTextField.text = ""
+      messages.append(message)
+      let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)!
+      self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+      self.scrollMessages()
+      
     }
   }
   
