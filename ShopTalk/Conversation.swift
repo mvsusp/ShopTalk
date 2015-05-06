@@ -17,8 +17,10 @@ class Conversation : PFObject, PFSubclassing {
       (objects, error) in
       var conversations = objects as! [Conversation]
       for conversation in conversations {
-        conversation.lastMessage?.fetch()
-        conversation.lastMessage?.author.fetch()
+        if let message = conversation.lastMessage {
+          message.fetch()
+          message.author.fetch()
+        }
       }
       
       block(conversations)
