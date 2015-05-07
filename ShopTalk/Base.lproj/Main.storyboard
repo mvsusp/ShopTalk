@@ -313,7 +313,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="logInPressed:" destination="7jS-ZS-4wf" eventType="touchUpInside" id="E9H-ym-WWY"/>
+                                            <action selector="signedUp:" destination="7jS-ZS-4wf" eventType="touchUpInside" id="2Le-0J-3nu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -357,9 +357,12 @@
                     </view>
                     <connections>
                         <outlet property="loginView" destination="Hg8-oA-dfa" id="UtQ-fw-cQ5"/>
+                        <outlet property="newPwd" destination="jRS-mx-N6h" id="F7w-hb-vwJ"/>
+                        <outlet property="newUsername" destination="rKI-m3-ei1" id="Hu5-HA-2IW"/>
                         <outlet property="pwdTextField" destination="Q4D-21-cD6" id="Brn-zh-C4q"/>
                         <outlet property="signupView" destination="8wH-vh-B36" id="iNc-a2-GZQ"/>
                         <outlet property="usernameTextField" destination="vt5-Ui-VRu" id="i9E-aC-bWY"/>
+                        <outlet property="website" destination="cyu-cD-fC0" id="qas-TE-phg"/>
                         <segue destination="Dwf-Bf-PRg" kind="show" identifier="login" id="NgL-uY-oAw"/>
                     </connections>
                 </viewController>
