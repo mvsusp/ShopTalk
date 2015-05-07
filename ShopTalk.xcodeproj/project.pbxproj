@@ -32,6 +32,7 @@
 		81D6EFEC1AE5D177000FDEC6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFEB1AE5D177000FDEC6 /* libsqlite3.dylib */; };
 		81D6EFF11AE5D465000FDEC6 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFF01AE5D465000FDEC6 /* Conversation.swift */; };
 		81E9EC441AE5DEBE00F262A5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E9EC431AE5DEBE00F262A5 /* Message.swift */; };
+		81FB3A951AFA4E7B00E782F0 /* LogInSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB3A941AFA4E7B00E782F0 /* LogInSignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		81D6EFF01AE5D465000FDEC6 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		81E9EC421AE5D55700F262A5 /* ShopTalk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShopTalk-Bridging-Header.h"; sourceTree = "<group>"; };
 		81E9EC431AE5DEBE00F262A5 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		81FB3A941AFA4E7B00E782F0 /* LogInSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInSignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				81E9EC421AE5D55700F262A5 /* ShopTalk-Bridging-Header.h */,
 				811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */,
 				814D000C1AF9992D00154A60 /* TheyMessageCell.swift */,
+				81FB3A941AFA4E7B00E782F0 /* LogInSignUpViewController.swift */,
 			);
 			path = ShopTalk;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				81E9EC441AE5DEBE00F262A5 /* Message.swift in Sources */,
 				81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */,
 				814D000D1AF9992D00154A60 /* TheyMessageCell.swift in Sources */,
+				81FB3A951AFA4E7B00E782F0 /* LogInSignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

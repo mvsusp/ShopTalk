@@ -4,9 +4,8 @@ import Parse
 class ContactViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var tableView: UITableView!
-
-  var conversations = [Conversation]()
   
+  var conversations = [Conversation]()
   var user : User?
   
   
@@ -15,24 +14,25 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     self.tableView.delegate = self
     self.tableView.dataSource = self
-
-    PFQuery(className: "User").getObjectInBackgroundWithId("NFh27ywcnZ") {
-      (user: PFObject?, error: NSError?) in
-      if error == nil && user != nil{
-        self.user = user as? User
-        
-//        var alexis = self.user!.contacts.first!
-//        var people = [self.user!, alexis]
-//        var conversation = Conversation.create(people)
-//        var message = Message.send(alexis, body: "hey ho", conversation: conversation)
-        
-        Conversation.findConversations(user!) {
-          (conversations) in
-          self.conversations = conversations
-          self.tableView.reloadData()
-        }
-      }
-    }
+    //    self.tableView.reloadData()
+    //
+    //    PFQuery(className: "User").getObjectInBackgroundWithId("NFh27ywcnZ") {
+    //      (user: PFObject?, error: NSError?) in
+    //      if error == nil && user != nil{
+    //        self.user = user as? User
+    //
+    ////        var alexis = self.user!.contacts.first!
+    ////        var people = [self.user!, alexis]
+    ////        var conversation = Conversation.create(people)
+    ////        var message = Message.send(alexis, body: "hey ho", conversation: conversation)
+    //
+    //        Conversation.findConversations(user!) {
+    //          (conversations) in
+    //          self.conversations = conversations
+    //          self.tableView.reloadData()
+    //        }
+    //      }
+    //    }
   }
   
   override func didReceiveMemoryWarning() {

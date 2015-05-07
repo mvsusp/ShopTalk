@@ -11,7 +11,7 @@ class Conversation : PFObject, PFSubclassing {
     return "Conversation"
   }
 
-  class func findConversations(user: PFObject, block: ([Conversation]) -> Void) {
+  class func findConversations(user: User, block: ([Conversation]) -> Void) {
     var query = Conversation.query()!.whereKey("people", containsAllObjectsInArray: [user])
     query.findObjectsInBackgroundWithBlock() {
       (objects, error) in
