@@ -2,10 +2,47 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7jS-ZS-4wf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Messages-->
+        <!--View Controller-->
+        <scene sceneID="JGo-lv-tQO">
+            <objects>
+                <viewController id="kor-vd-9Ua" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vuG-CW-qd1"/>
+                        <viewControllerLayoutGuide type="bottom" id="gnK-l2-DJe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TcD-iY-hee">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIQ-S7-WxI">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="ysc-lv-DzS"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Add Contact" id="ho3-8C-wP1" userLabel="Add Contact">
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="eLY-h0-ECs"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fIQ-S7-WxI" firstAttribute="topMargin" secondItem="vuG-CW-qd1" secondAttribute="bottom" constant="-20" id="5v8-Cm-3dd"/>
+                            <constraint firstAttribute="centerX" secondItem="fIQ-S7-WxI" secondAttribute="centerX" id="PJe-eg-0EV"/>
+                            <constraint firstAttribute="width" secondItem="fIQ-S7-WxI" secondAttribute="width" id="saO-4b-XiC"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JB5-Pe-Aqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1722" y="-202"/>
+        </scene>
+        <!--Contact View Controller-->
         <scene sceneID="ypu-Uc-NWH">
             <objects>
                 <viewController id="Ahn-tS-jfw" customClass="ContactViewController" customModule="ShopTalk" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +54,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VzH-qm-8IU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VzH-qm-8IU" userLabel="MessagesTableView">
                                 <rect key="frame" x="1" y="64" width="599" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -47,17 +84,69 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mI3-52-KLz" userLabel="ContactsTableView">
+                                <rect key="frame" x="1" y="64" width="599" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Nuc-yD-XvZ" detailTextLabel="xxN-Y6-jUB" style="IBUITableViewCellStyleSubtitle" id="rBc-mu-Z3v">
+                                        <rect key="frame" x="0.0" y="0.0" width="599" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rBc-mu-Z3v" id="2Gs-uI-Lbq">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nuc-yD-XvZ">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xxN-Y6-jUB">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VzH-qm-8IU" firstAttribute="top" secondItem="Blm-1E-3L6" secondAttribute="bottom" id="4AK-bV-oQn"/>
+                            <constraint firstItem="mI3-52-KLz" firstAttribute="centerX" secondItem="VzH-qm-8IU" secondAttribute="centerX" id="Cgk-Qh-SqW"/>
                             <constraint firstAttribute="bottomMargin" secondItem="VzH-qm-8IU" secondAttribute="bottom" id="Mpk-oY-cI9"/>
                             <constraint firstAttribute="trailing" secondItem="VzH-qm-8IU" secondAttribute="trailing" id="RAs-zj-J7S"/>
+                            <constraint firstItem="mI3-52-KLz" firstAttribute="width" secondItem="VzH-qm-8IU" secondAttribute="width" id="ZRK-zN-ABp"/>
+                            <constraint firstItem="mI3-52-KLz" firstAttribute="height" secondItem="VzH-qm-8IU" secondAttribute="height" id="kU5-25-n5S"/>
                             <constraint firstItem="VzH-qm-8IU" firstAttribute="leadingMargin" secondItem="YUK-6E-g84" secondAttribute="leadingMargin" id="mPN-qX-cFq"/>
+                            <constraint firstItem="mI3-52-KLz" firstAttribute="centerY" secondItem="VzH-qm-8IU" secondAttribute="centerY" id="pzE-8C-svv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Messages" id="GH7-eM-B9C"/>
+                    <navigationItem key="navigationItem" id="GH7-eM-B9C">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" id="M4B-Bs-FVZ"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="yDK-th-p8t">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Messages"/>
+                                <segment title="Contacts"/>
+                            </segments>
+                            <connections>
+                                <action selector="valueChanged:" destination="Ahn-tS-jfw" eventType="valueChanged" id="Bq3-2Y-afR"/>
+                            </connections>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="tYd-x2-QNz">
+                            <connections>
+                                <segue destination="kor-vd-9Ua" kind="presentation" identifier="addSegue" id="dF4-YU-5KO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="contactsTableView" destination="mI3-52-KLz" id="Zlz-rR-dXo"/>
+                        <outlet property="segmentedControl" destination="yDK-th-p8t" id="WyJ-Fg-aZQ"/>
                         <outlet property="tableView" destination="VzH-qm-8IU" id="O6t-z2-0GO"/>
                     </connections>
                 </viewController>
@@ -300,7 +389,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="website" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cyu-cD-fC0" userLabel="website">
                                         <rect key="frame" x="266" y="77" width="68" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jRS-mx-N6h" userLabel="newPassword">
                                         <rect key="frame" x="267" y="124" width="67" height="17"/>

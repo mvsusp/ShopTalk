@@ -25,17 +25,7 @@ class LogInSignUpViewController: UIViewController {
       PFUser.logInWithUsernameInBackground(usernameTextField.text, password: pwdTextField.text) {
         (user: PFUser?, error: NSError?) -> Void in
         if user != nil {
-          var query = PFQuery(className: "User").whereKey("username", equalTo: user!.username!)
-          query.getFirstObjectInBackgroundWithBlock() {
-            (object, error) in
-            self.user = object as! User?
-            
-            Conversation.findConversations(self.user!) {
-              (conversations) in
-              self.conversations = conversations
-              self.performSegueWithIdentifier("login", sender: self)
-            }
-          }
+          self.presentMainViewController(user!.username!)
         } else {
           let alertController = UIAlertController(title: "Log in", message: error!.description, preferredStyle: .Alert)
           let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
@@ -45,10 +35,27 @@ class LogInSignUpViewController: UIViewController {
     }
   }
   
+  func presentMainViewController(username: String){
+    var query = PFQuery(className: "User").whereKey("username", equalTo: username)
+    query.getFirstObjectInBackgroundWithBlock() {
+      (object, error) in
+      self.user = object as! User?
+      
+      Conversation.findConversations(self.user!) {
+        (conversations) in
+        self.conversations = conversations
+        self.performSegueWithIdentifier("login", sender: self)
+      }
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     signupView.hidden = true
-    // Do any additional setup after loading the view.
+//    PFUser.logOut()
+    if let currentUser = PFUser.currentUser() {
+      presentMainViewController(currentUser.username!)
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -81,6 +88,8 @@ class LogInSignUpViewController: UIViewController {
         (succeeded, error) in
         if error == nil {
           self.user = User.create(self.newUsername.text!)
+          self.user?.website = self.website.text
+          self.user?.saveInBackground()
           self.performSegueWithIdentifier("login", sender: self)
 
           

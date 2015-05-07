@@ -5,6 +5,7 @@ class User : PFObject, PFSubclassing {
   
   @NSManaged var contacts: [User]
   @NSManaged var username: String
+  @NSManaged var website: String
   
   static func parseClassName() -> String {
     return "User"
