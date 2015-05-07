@@ -7,6 +7,8 @@ class LogInSignUpViewController: UIViewController {
   @IBOutlet weak var pwdTextField: UITextField!
   var user : User?
   var conversations = [Conversation]()
+  @IBOutlet weak var loginView: UIView!
+  @IBOutlet weak var signupView: UIView!
   
   @IBAction func logInPressed(sender: UIButton) {
     if usernameTextField.text == "" || pwdTextField.text == "" {
@@ -41,7 +43,7 @@ class LogInSignUpViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    signupView.hidden = true
     // Do any additional setup after loading the view.
   }
   
@@ -49,9 +51,17 @@ class LogInSignUpViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
-  
 
+  @IBAction func segmentSwitched(sender: UISegmentedControl) {
+    if sender.selectedSegmentIndex == 0 {
+      loginView.hidden = false
+      signupView.hidden = true
+    } else {
+      loginView.hidden = true
+      signupView.hidden = false
+    }
+  }
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     var navigationController = segue.destinationViewController as! UINavigationController
     var controller = navigationController.topViewController as! ContactViewController
