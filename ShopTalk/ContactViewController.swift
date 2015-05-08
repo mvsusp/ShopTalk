@@ -15,12 +15,11 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     super.viewDidLoad()
     self.contacts = self.user!.contacts
     
+    
     self.tableView.delegate = self
     self.tableView.dataSource = self
     
     self.contactsTableView.hidden = true
-//    self.contactsTableView.delegate = self
-//    self.contactsTableView.dataSource = self
   }
   
   override func didReceiveMemoryWarning() {
@@ -46,13 +45,36 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
   }
   
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if editingStyle == UITableViewCellEditingStyle.Delete {
+      user?.removeContact(contacts[indexPath.row])
+      self.contacts = user!.contacts
+      tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+      
+    } else if editingStyle == UITableViewCellEditingStyle.Insert {
+      
+    }
+  }
+
+  
   @IBAction func valueChanged(sender: UISegmentedControl) {
     self.tableView.reloadData()
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "addSegue" {
+      var controller = segue.destinationViewController as! NewModalViewController
+      controller.user = self.user
+      controller.mainController = self
       
+      var existingContacts = contacts.map({ $0.username })
+      existingContacts.append(user!.username)
+      User.query()?.whereKey("username", notContainedIn: existingContacts).findObjectsInBackgroundWithBlock() {
+        (objects, error) in
+        
+        controller.contacts = objects as! [User]
+        controller.allContactsTableview.reloadData()
+      }
     } else {
       var index = self.tableView.indexPathForSelectedRow()!
       var controller = segue.destinationViewController as! MessagesViewController

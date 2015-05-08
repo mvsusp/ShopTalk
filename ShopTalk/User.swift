@@ -18,7 +18,13 @@ class User : PFObject, PFSubclassing {
     return user
   }
  
-  
+  func removeContact(contact: User) {
+    self.removeObject(contact, forKey: "contacts")
+    self.save()
+    
+    contact.removeObject(self, forKey: "contacts")
+    contact.saveInBackground()
+  }
   
   func createContact(contact: User) {
     if contact.isDirty() {
@@ -29,6 +35,6 @@ class User : PFObject, PFSubclassing {
     self.save()
     
     contact.addObject(self, forKey: "contacts")
-    contact.saveEventually()
+    contact.saveInBackground()
   }
 }

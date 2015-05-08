@@ -33,6 +33,7 @@
 		81D6EFF11AE5D465000FDEC6 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFF01AE5D465000FDEC6 /* Conversation.swift */; };
 		81E9EC441AE5DEBE00F262A5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E9EC431AE5DEBE00F262A5 /* Message.swift */; };
 		81FB3A951AFA4E7B00E782F0 /* LogInSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB3A941AFA4E7B00E782F0 /* LogInSignUpViewController.swift */; };
+		81FB3A981AFC2A3300E782F0 /* NewModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB3A971AFC2A3300E782F0 /* NewModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +61,8 @@
 		81D6EFC61AE52F3E000FDEC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81D6EFC71AE52F3E000FDEC6 /* ShopTalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTalkTests.swift; sourceTree = "<group>"; };
 		81D6EFD11AE5CDA3000FDEC6 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
-		81D6EFD31AE5D0A6000FDEC6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		81D6EFD51AE5D0BA000FDEC6 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		81D6EFD31AE5D0A6000FDEC6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ShopTalk/Parse.framework; sourceTree = "<group>"; };
+		81D6EFD51AE5D0BA000FDEC6 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ShopTalk/Bolts.framework; sourceTree = "<group>"; };
 		81D6EFD71AE5D114000FDEC6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		81D6EFD91AE5D120000FDEC6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		81D6EFDB1AE5D129000FDEC6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -77,6 +78,7 @@
 		81E9EC421AE5D55700F262A5 /* ShopTalk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShopTalk-Bridging-Header.h"; sourceTree = "<group>"; };
 		81E9EC431AE5DEBE00F262A5 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		81FB3A941AFA4E7B00E782F0 /* LogInSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInSignUpViewController.swift; sourceTree = "<group>"; };
+		81FB3A971AFC2A3300E782F0 /* NewModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +115,6 @@
 		81D6EFA31AE52F3E000FDEC6 = {
 			isa = PBXGroup;
 			children = (
-				81D6EFEB1AE5D177000FDEC6 /* libsqlite3.dylib */,
-				81D6EFE91AE5D169000FDEC6 /* libz.dylib */,
 				81E9EC471AE5E22400F262A5 /* Lib */,
 				81D6EFAE1AE52F3E000FDEC6 /* ShopTalk */,
 				81D6EFC41AE52F3E000FDEC6 /* ShopTalkTests */,
@@ -135,9 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */,
-				81D6EFD31AE5D0A6000FDEC6 /* Parse.framework */,
 				81FB3A961AFC294700E782F0 /* Controllers */,
-				81D6EFD51AE5D0BA000FDEC6 /* Bolts.framework */,
 				81D6EFB51AE52F3E000FDEC6 /* Main.storyboard */,
 				81D6EFB81AE52F3E000FDEC6 /* Images.xcassets */,
 				81D6EFBA1AE52F3E000FDEC6 /* LaunchScreen.xib */,
@@ -178,6 +176,10 @@
 		81E9EC471AE5E22400F262A5 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				81D6EFEB1AE5D177000FDEC6 /* libsqlite3.dylib */,
+				81D6EFE91AE5D169000FDEC6 /* libz.dylib */,
+				81D6EFD31AE5D0A6000FDEC6 /* Parse.framework */,
+				81D6EFD51AE5D0BA000FDEC6 /* Bolts.framework */,
 				81D6EFE71AE5D15C000FDEC6 /* SystemConfiguration.framework */,
 				81D6EFE51AE5D152000FDEC6 /* StoreKit.framework */,
 				81D6EFE31AE5D14A000FDEC6 /* Security.framework */,
@@ -207,6 +209,7 @@
 				81D6EFB31AE52F3E000FDEC6 /* ContactViewController.swift */,
 				81D6EFD11AE5CDA3000FDEC6 /* MessagesViewController.swift */,
 				81FB3A941AFA4E7B00E782F0 /* LogInSignUpViewController.swift */,
+				81FB3A971AFC2A3300E782F0 /* NewModalViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */,
 				814D000D1AF9992D00154A60 /* TheyMessageCell.swift in Sources */,
 				81FB3A951AFA4E7B00E782F0 /* LogInSignUpViewController.swift in Sources */,
+				81FB3A981AFC2A3300E782F0 /* NewModalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

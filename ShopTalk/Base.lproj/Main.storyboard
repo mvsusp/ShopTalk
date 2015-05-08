@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--New Modal View Controller-->
         <scene sceneID="JGo-lv-tQO">
             <objects>
-                <viewController id="kor-vd-9Ua" sceneMemberID="viewController">
+                <viewController id="kor-vd-9Ua" customClass="NewModalViewController" customModule="ShopTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vuG-CW-qd1"/>
                         <viewControllerLayoutGuide type="bottom" id="gnK-l2-DJe"/>
@@ -25,22 +25,60 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Add Contact" id="ho3-8C-wP1" userLabel="Add Contact">
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="eLY-h0-ECs"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="eLY-h0-ECs">
+                                            <connections>
+                                                <action selector="dismissModal:" destination="kor-vd-9Ua" id="qsR-Bx-PBv"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HTV-J2-j9h">
+                                <rect key="frame" x="1" y="64" width="599" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="addContactCell" editingAccessoryType="checkmark" textLabel="jSr-gd-oet" detailTextLabel="bPc-9E-Fko" style="IBUITableViewCellStyleSubtitle" id="FW5-jU-cEu" userLabel="AddContact">
+                                        <rect key="frame" x="0.0" y="0.0" width="599" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FW5-jU-cEu" id="4A9-aV-SmK">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jSr-gd-oet">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bPc-9E-Fko">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fIQ-S7-WxI" firstAttribute="topMargin" secondItem="vuG-CW-qd1" secondAttribute="bottom" constant="-20" id="5v8-Cm-3dd"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="HTV-J2-j9h" secondAttribute="bottom" id="Duc-jr-upP"/>
+                            <constraint firstAttribute="trailing" secondItem="HTV-J2-j9h" secondAttribute="trailing" id="Nx9-5P-4Ba"/>
                             <constraint firstAttribute="centerX" secondItem="fIQ-S7-WxI" secondAttribute="centerX" id="PJe-eg-0EV"/>
+                            <constraint firstItem="HTV-J2-j9h" firstAttribute="leadingMargin" secondItem="TcD-iY-hee" secondAttribute="leadingMargin" id="i75-1c-sTp"/>
+                            <constraint firstItem="HTV-J2-j9h" firstAttribute="top" secondItem="fIQ-S7-WxI" secondAttribute="bottom" id="mPC-yt-vZc"/>
                             <constraint firstAttribute="width" secondItem="fIQ-S7-WxI" secondAttribute="width" id="saO-4b-XiC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="allContactsTableview" destination="HTV-J2-j9h" id="dPp-b1-phJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JB5-Pe-Aqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="-202"/>
+            <point key="canvasLocation" x="2436" y="-203"/>
         </scene>
         <!--Contact View Controller-->
         <scene sceneID="ypu-Uc-NWH">
@@ -138,7 +176,7 @@
                                 <action selector="valueChanged:" destination="Ahn-tS-jfw" eventType="valueChanged" id="Bq3-2Y-afR"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="tYd-x2-QNz">
+                        <barButtonItem key="rightBarButtonItem" title="Add " id="tYd-x2-QNz">
                             <connections>
                                 <segue destination="kor-vd-9Ua" kind="presentation" identifier="addSegue" id="dF4-YU-5KO"/>
                             </connections>
