@@ -15,12 +15,11 @@ class Message : PFObject, PFSubclassing {
     var message = Message()
     message.content = body
     message.author = author
-    message.saveInBackground()
+    message.saveInBackgroundWithBlock() {
+      (success) in
+      conversation.addMessage(message)
+    }
     
-    
-    conversation.addMessage(message)
-    //    conversation .relationForKey("messages").addObject(message)
-    //    conversation.saveInBackground()
     return message
   }
 }

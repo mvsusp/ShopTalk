@@ -35,7 +35,7 @@ class LogInSignUpViewController: UIViewController {
     }
   }
   
-  func presentMainViewController(username: String){
+  func presentMainViewController(username: String) {
     var query = PFQuery(className: "User").includeKey("contacts").whereKey("username", equalTo: username)
     query.getFirstObjectInBackgroundWithBlock() {
       (object, error) in
