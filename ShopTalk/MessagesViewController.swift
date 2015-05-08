@@ -15,38 +15,32 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     self.tableView.delegate = self
     self.tableView.dataSource = self
     
-    self.title = conversation!.otherUsers(user!).first!.username
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-    
-    conversation!.messages.query()?.orderByAscending("createdAt").findObjectsInBackgroundWithBlock() {
-      (objects, error) in
-      self.messages = objects as! [Message]
-      self.messages.append(self.conversation!.lastMessage!)
-      //      self.tableView.reloadData()
+  }
+  
+  func loadConversation() {
+    self.title = conversation!.otherUsers(user!).first!.username
+    conversation!.findMessages() {
+      (messages) in
+      self.messages = messages
+   
+      if messages.count == 0 {
+        return
+      }
+      
       let paths = map(0..<self.messages.count, {(x) in NSIndexPath(forRow: x, inSection: 0) })
-      
-      //      self.tableView.beginUpdates()
       self.tableView.insertRowsAtIndexPaths(paths, withRowAnimation: UITableViewRowAnimation.Automatic)
-      //      self.tableView.endUpdates()
-      //      self.scrollMessages(animated: false)
       self.tableView.reloadData()
-      
-      //      self.tableView.selectRowAtIndexPath(paths.last!, animated: true, scrollPosition: UITableViewScrollPosition.Bottom)
-      
-      //      if self.tableView.contentSize.height > self.tableView.frame.size.height
-      //      {
-      //        let offset = CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height)
-      //        self.tableView.setContentOffset(offset, animated: false)
-      //      }
-      
       self.scrollMessages(animated: true)
     }
   }
   
   func scrollMessages(animated: Bool = true) {
-    let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)
-    tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: animated)
+    if messages.count > 0 {
+      let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)
+      tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: animated)
+    }
   }
   
   func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -54,7 +48,6 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     
     if message.author == user! {
       var cell = tableView.dequeueReusableCellWithIdentifier("MyMessageCell") as! MyMessageTableViewCell
-      
       cell.content.text = message.content
       
       return cell.content.layer.bounds.height
@@ -106,8 +99,6 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     )
   }
   
-  
-  
   func keyboardWillHide(notification: NSNotification) {
     let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSTimeInterval
     UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseOut, animations: {
@@ -124,13 +115,11 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
       let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)!
       self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
       self.scrollMessages()
-      
     }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    let controller = segue.destinationViewController as! WebsiteViewController
+    controller.website = conversation!.otherUsers(user!).first?.website
   }
-  
 }

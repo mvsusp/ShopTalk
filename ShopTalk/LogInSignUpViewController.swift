@@ -40,12 +40,7 @@ class LogInSignUpViewController: UIViewController {
     query.getFirstObjectInBackgroundWithBlock() {
       (object, error) in
       self.user = object as! User?
-      
-      Conversation.findConversations(self.user!) {
-        (conversations) in
-        self.conversations = conversations
-        self.performSegueWithIdentifier("login", sender: self)
-      }
+       self.performSegueWithIdentifier("login", sender: self)
     }
   }
   

@@ -34,6 +34,7 @@
 		81E9EC441AE5DEBE00F262A5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E9EC431AE5DEBE00F262A5 /* Message.swift */; };
 		81FB3A951AFA4E7B00E782F0 /* LogInSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB3A941AFA4E7B00E782F0 /* LogInSignUpViewController.swift */; };
 		81FB3A981AFC2A3300E782F0 /* NewModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB3A971AFC2A3300E782F0 /* NewModalViewController.swift */; };
+		81FB3A9A1AFC465F00E782F0 /* WebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB3A991AFC465F00E782F0 /* WebsiteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		81E9EC431AE5DEBE00F262A5 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		81FB3A941AFA4E7B00E782F0 /* LogInSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInSignUpViewController.swift; sourceTree = "<group>"; };
 		81FB3A971AFC2A3300E782F0 /* NewModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewModalViewController.swift; sourceTree = "<group>"; };
+		81FB3A991AFC465F00E782F0 /* WebsiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 				81D6EFD11AE5CDA3000FDEC6 /* MessagesViewController.swift */,
 				81FB3A941AFA4E7B00E782F0 /* LogInSignUpViewController.swift */,
 				81FB3A971AFC2A3300E782F0 /* NewModalViewController.swift */,
+				81FB3A991AFC465F00E782F0 /* WebsiteViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				811979991AEAACB5005AA3A5 /* MyMessageTableViewCell.swift in Sources */,
 				81E9EC441AE5DEBE00F262A5 /* Message.swift in Sources */,
 				81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */,
+				81FB3A9A1AFC465F00E782F0 /* WebsiteViewController.swift in Sources */,
 				814D000D1AF9992D00154A60 /* TheyMessageCell.swift in Sources */,
 				81FB3A951AFA4E7B00E782F0 /* LogInSignUpViewController.swift in Sources */,
 				81FB3A981AFC2A3300E782F0 /* NewModalViewController.swift in Sources */,

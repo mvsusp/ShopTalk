@@ -13,13 +13,21 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.contacts = self.user!.contacts
     
     
     self.tableView.delegate = self
     self.tableView.dataSource = self
     
     self.contactsTableView.hidden = true
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    Conversation.findConversations([self.user!]) {
+      (conversations) in
+      self.conversations = conversations
+      self.contacts = self.user!.contacts
+      self.tableView.reloadData()
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -35,7 +43,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     if segmentedControl.selectedSegmentIndex == 0 {
       var conversation = self.conversations[indexPath.row]
       cell.textLabel?.text = conversation.otherUsers(self.user!).first!.username
-      cell.detailTextLabel?.text = conversation.lastMessage!.content
+      cell.detailTextLabel?.text = conversation.lastMessage?.content
       return cell
     } else {
       var contact = self.contacts[indexPath.row]
@@ -78,8 +86,23 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     } else {
       var index = self.tableView.indexPathForSelectedRow()!
       var controller = segue.destinationViewController as! MessagesViewController
-      controller.conversation = conversations[index.row]
       controller.user = user
+      
+      if segmentedControl.selectedSegmentIndex == 0 {
+        controller.conversation = conversations[index.row]
+        controller.loadConversation()
+      } else {
+        let people = [self.user!, self.contacts[index.row]]
+        Conversation.findConversations( people, block: {
+          (conversations) in
+          if conversations.count == 0 {
+            controller.conversation = Conversation.create(people)
+          } else {
+            controller.conversation = conversations.last!
+          }
+          controller.loadConversation()
+        })
+      }
     }
   }
 }

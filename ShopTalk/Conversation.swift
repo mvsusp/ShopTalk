@@ -3,7 +3,7 @@ import Parse
 
 class Conversation : PFObject, PFSubclassing {
   
-  @NSManaged var messages: PFRelation
+  @NSManaged private var messages: PFRelation
   @NSManaged var people: [User]
   @NSManaged var lastMessage: Message?
   
@@ -11,8 +11,8 @@ class Conversation : PFObject, PFSubclassing {
     return "Conversation"
   }
 
-  class func findConversations(user: User, block: ([Conversation]) -> Void) {
-    var query = Conversation.query()!.whereKey("people", containsAllObjectsInArray: [user])
+  class func findConversations(users: [User], block: ([Conversation]) -> Void) {
+    var query = Conversation.query()!.whereKey("people", containsAllObjectsInArray: users)
     query.findObjectsInBackgroundWithBlock() {
       (objects, error) in
       var conversations = objects as! [Conversation]
@@ -26,7 +26,20 @@ class Conversation : PFObject, PFSubclassing {
       block(conversations)
     }
   }
-
+  
+  func findMessages(block: ([Message]) -> Void) {
+    if lastMessage == nil {
+      block([])
+    } else {
+      messages.query()?.orderByAscending("createdAt").findObjectsInBackgroundWithBlock() {
+        (objects, error) in
+        var foundMessages = objects as! [Message]
+        foundMessages.append(self.lastMessage!)
+        block(foundMessages)
+      }
+    }
+  }
+  
   func otherUsers(user: User) -> [User] {
     self.fetchIfNeeded()
     var others = people.filter({(p) in p != user})
