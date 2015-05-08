@@ -47,7 +47,7 @@ class LogInSignUpViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     signupView.hidden = true
-//    PFUser.logOut()
+
     if let currentUser = PFUser.currentUser() {
       presentMainViewController(currentUser.username!)
     }

@@ -15,6 +15,11 @@ class User : PFObject, PFSubclassing {
     var user = User()
     user.username = username
     user.save()
+    
+    let currentInstallation = PFInstallation.currentInstallation()
+    currentInstallation.addUniqueObject("\(user.username)", forKey: "channels")
+    currentInstallation.saveInBackground()
+    
     return user
   }
  

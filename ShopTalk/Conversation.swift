@@ -61,7 +61,8 @@ class Conversation : PFObject, PFSubclassing {
     saveInBackgroundWithBlock() {
       (success) in
       let push = PFPush()
-      push.setChannel("\(self.objectId!)")
+      let channels = self.otherUsers(message.author).map({$0.username})
+      push.setChannels(channels)
       push.setMessage(message.content)
       push.sendPushInBackground()
     }
@@ -70,14 +71,7 @@ class Conversation : PFObject, PFSubclassing {
   class func create(people: [User]) -> Conversation {
     var conversation = Conversation()
     conversation.people = people
-    conversation.saveInBackgroundWithBlock() {
-      (success) in
-      let currentInstallation = PFInstallation.currentInstallation()
-      currentInstallation.addUniqueObject("\(conversation.objectId!)", forKey: "channels")
-      currentInstallation.saveInBackground()
-    }
-    
-    
+    conversation.saveInBackground()
     return conversation
   }
 }

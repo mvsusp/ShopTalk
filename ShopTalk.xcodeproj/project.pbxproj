@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8101C6721AFCE607001B885A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101C6701AFCE607001B885A /* Bolts.framework */; };
+		8101C6731AFCE607001B885A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101C6711AFCE607001B885A /* Parse.framework */; };
 		811979991AEAACB5005AA3A5 /* MyMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */; };
 		811A55971AE728FA00721D0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A55961AE728FA00721D0D /* User.swift */; };
 		814D000D1AF9992D00154A60 /* TheyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814D000C1AF9992D00154A60 /* TheyMessageCell.swift */; };
@@ -17,8 +19,6 @@
 		81D6EFBC1AE52F3E000FDEC6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D6EFBA1AE52F3E000FDEC6 /* LaunchScreen.xib */; };
 		81D6EFC81AE52F3E000FDEC6 /* ShopTalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFC71AE52F3E000FDEC6 /* ShopTalkTests.swift */; };
 		81D6EFD21AE5CDA3000FDEC6 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFD11AE5CDA3000FDEC6 /* MessagesViewController.swift */; };
-		81D6EFD41AE5D0A6000FDEC6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFD31AE5D0A6000FDEC6 /* Parse.framework */; };
-		81D6EFD61AE5D0BA000FDEC6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFD51AE5D0BA000FDEC6 /* Bolts.framework */; };
 		81D6EFD81AE5D114000FDEC6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFD71AE5D114000FDEC6 /* AudioToolbox.framework */; };
 		81D6EFDA1AE5D120000FDEC6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFD91AE5D120000FDEC6 /* CFNetwork.framework */; };
 		81D6EFDC1AE5D129000FDEC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6EFDB1AE5D129000FDEC6 /* CoreGraphics.framework */; };
@@ -48,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8101C6701AFCE607001B885A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		8101C6711AFCE607001B885A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMessageTableViewCell.swift; sourceTree = "<group>"; };
 		811A55961AE728FA00721D0D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		814D000C1AF9992D00154A60 /* TheyMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheyMessageCell.swift; sourceTree = "<group>"; };
@@ -62,8 +64,6 @@
 		81D6EFC61AE52F3E000FDEC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81D6EFC71AE52F3E000FDEC6 /* ShopTalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTalkTests.swift; sourceTree = "<group>"; };
 		81D6EFD11AE5CDA3000FDEC6 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
-		81D6EFD31AE5D0A6000FDEC6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ShopTalk/Parse.framework; sourceTree = "<group>"; };
-		81D6EFD51AE5D0BA000FDEC6 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ShopTalk/Bolts.framework; sourceTree = "<group>"; };
 		81D6EFD71AE5D114000FDEC6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		81D6EFD91AE5D120000FDEC6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		81D6EFDB1AE5D129000FDEC6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,16 +91,16 @@
 				81D6EFEC1AE5D177000FDEC6 /* libsqlite3.dylib in Frameworks */,
 				81D6EFEA1AE5D169000FDEC6 /* libz.dylib in Frameworks */,
 				81D6EFE81AE5D15C000FDEC6 /* SystemConfiguration.framework in Frameworks */,
+				8101C6721AFCE607001B885A /* Bolts.framework in Frameworks */,
 				81D6EFE61AE5D152000FDEC6 /* StoreKit.framework in Frameworks */,
 				81D6EFE41AE5D14A000FDEC6 /* Security.framework in Frameworks */,
+				8101C6731AFCE607001B885A /* Parse.framework in Frameworks */,
 				81D6EFE21AE5D141000FDEC6 /* QuartzCore.framework in Frameworks */,
 				81D6EFE01AE5D139000FDEC6 /* MobileCoreServices.framework in Frameworks */,
 				81D6EFDE1AE5D130000FDEC6 /* CoreLocation.framework in Frameworks */,
 				81D6EFDC1AE5D129000FDEC6 /* CoreGraphics.framework in Frameworks */,
 				81D6EFDA1AE5D120000FDEC6 /* CFNetwork.framework in Frameworks */,
 				81D6EFD81AE5D114000FDEC6 /* AudioToolbox.framework in Frameworks */,
-				81D6EFD41AE5D0A6000FDEC6 /* Parse.framework in Frameworks */,
-				81D6EFD61AE5D0BA000FDEC6 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,10 +178,10 @@
 		81E9EC471AE5E22400F262A5 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				8101C6701AFCE607001B885A /* Bolts.framework */,
+				8101C6711AFCE607001B885A /* Parse.framework */,
 				81D6EFEB1AE5D177000FDEC6 /* libsqlite3.dylib */,
 				81D6EFE91AE5D169000FDEC6 /* libz.dylib */,
-				81D6EFD31AE5D0A6000FDEC6 /* Parse.framework */,
-				81D6EFD51AE5D0BA000FDEC6 /* Bolts.framework */,
 				81D6EFE71AE5D15C000FDEC6 /* SystemConfiguration.framework */,
 				81D6EFE51AE5D152000FDEC6 /* StoreKit.framework */,
 				81D6EFE31AE5D14A000FDEC6 /* Security.framework */,
@@ -266,6 +266,7 @@
 				TargetAttributes = {
 					81D6EFAB1AE52F3E000FDEC6 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = CY87P243DB;
 					};
 					81D6EFC01AE52F3E000FDEC6 = {
 						CreatedOnToolsVersion = 6.3;
@@ -386,7 +387,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Marcio Santos (WL88V5YU58)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Marcio Santos (WL88V5YU58)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -431,7 +433,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Marcio Santos (WL88V5YU58)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Marcio Santos (WL88V5YU58)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -457,9 +460,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Marcio Santos (WL88V5YU58)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShopTalk",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ShopTalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -474,9 +479,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Marcio Santos (WL88V5YU58)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShopTalk",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ShopTalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
