@@ -17,6 +17,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageArrived:", name: MessageArrivedNotification, object: nil)
   }
   
   func loadConversation() {
@@ -105,6 +106,15 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
       self.bottomConstraint.constant = 0
       
       }, completion: nil)
+  }
+  
+  func messageArrived(notification: NSNotification) {
+    self.conversation?.fetch()
+    self.conversation?.lastMessage?.fetch()
+    messages.append(self.conversation!.lastMessage!)
+    let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)!
+    self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+    self.scrollMessages()
   }
   
   @IBAction func sendButtonPressed(sender: UIBarButtonItem) {

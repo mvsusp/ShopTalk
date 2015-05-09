@@ -11,6 +11,14 @@ class User : PFObject, PFSubclassing {
     return "User"
   }
   
+  static func find(username: String, block: (User) -> Void) {
+    query()?.whereKey("username", equalTo: username).getFirstObjectInBackgroundWithBlock() {
+      (object, error) in
+      let user = object as! User
+      block(user)
+    }
+  }
+  
   static func create(username: String) -> User {
     var user = User()
     user.username = username

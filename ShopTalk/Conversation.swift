@@ -63,7 +63,15 @@ class Conversation : PFObject, PFSubclassing {
       let push = PFPush()
       let channels = self.otherUsers(message.author).map({$0.username})
       push.setChannels(channels)
-      push.setMessage(message.content)
+      
+      let data = [
+        "alert" : "\(message.author.username):\n\(message.content)",
+        "badge" : "Increment",
+        "content" : message.content,
+        "author" : message.author
+      ]
+      
+      push.setData(data)
       push.sendPushInBackground()
     }
   }
