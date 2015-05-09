@@ -1,7 +1,7 @@
 import UIKit
 import Parse
 
-class LogInSignUpViewController: ApplicationViewController {
+class LogInSignUpViewController: ApplicationViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   @IBOutlet weak var newPwd: UITextField!
   @IBOutlet weak var newUsername: UITextField!
@@ -13,6 +13,24 @@ class LogInSignUpViewController: ApplicationViewController {
   @IBOutlet weak var loginView: UIView!
   @IBOutlet weak var signupView: UIView!
   
+  var logoImage : UIImage?
+  var logoImagePicker = UIImagePickerController()
+  var frontImage : UIImage?
+  var frontImagePicker = UIImagePickerController()
+  
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    logoImagePicker.delegate = self
+    frontImagePicker.delegate = self
+    
+    signupView.hidden = true
+    
+    if let currentUser = PFUser.currentUser() {
+      presentMainViewController(currentUser.username!)
+    }
+  }
+
   
   @IBAction func logInPressed(sender: UIButton) {
     if usernameTextField.text == "" || pwdTextField.text == "" {
@@ -44,14 +62,6 @@ class LogInSignUpViewController: ApplicationViewController {
     }
   }
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    signupView.hidden = true
-
-    if let currentUser = PFUser.currentUser() {
-      presentMainViewController(currentUser.username!)
-    }
-  }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -103,5 +113,35 @@ class LogInSignUpViewController: ApplicationViewController {
     controller.conversations = conversations
   }
   
+  
+  @IBAction func logoImagePressed(sender: UIButton) {
+    
+    if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
+      logoImagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
+      logoImagePicker.allowsEditing = false
+      
+      self.presentViewController(logoImagePicker, animated: true, completion: nil)
+    }
+  }
+  
+  @IBAction func frontImagePressed(sender: UIButton) {
+    if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
+      frontImagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
+      frontImagePicker.allowsEditing = false
+      
+      self.presentViewController(frontImagePicker, animated: true, completion: nil)
+    }
+  }
+  
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    self.dismissViewControllerAnimated(true, completion: { () -> Void in
+      
+    })
+    if picker == frontImagePicker {
+      frontImage = image
+    } else {
+      logoImage = image
+    }
+  }
   
 }
