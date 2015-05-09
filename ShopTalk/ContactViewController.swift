@@ -15,6 +15,8 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
     
     self.tableView.delegate = self
     self.tableView.dataSource = self
+    self.contactsTableView.delegate = self
+    self.contactsTableView.dataSource = self
     self.contactsTableView.hidden = true
   }
   
@@ -28,6 +30,7 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
       self.conversations = conversations
       self.contacts = self.user!.contacts
       self.tableView.reloadData()
+      self.contactsTableView.reloadData()
     }
   }
 
@@ -41,26 +44,28 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return segmentedControl.selectedSegmentIndex == 0 ? conversations.count : contacts.count
+    return tableView == self.tableView ? conversations.count : contacts.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    var cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! UITableViewCell
-    if segmentedControl.selectedSegmentIndex == 0 {
+    if tableView == self.tableView {
+      var cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! UITableViewCell
+
       var conversation = self.conversations[indexPath.row]
       cell.textLabel?.text = conversation.otherUsers(self.user!).first!.username
       cell.detailTextLabel?.text = conversation.lastMessage?.content
       return cell
     } else {
+      var cell = tableView.dequeueReusableCellWithIdentifier("CompanyCell") as! LogoImageCellTableViewCell
+
       var contact = self.contacts[indexPath.row]
-      cell.textLabel?.text = contact.username
-      cell.detailTextLabel?.text = contact.website
+      cell.logoImageView.image = contact.logoImage
       return cell
     }
   }
   
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == UITableViewCellEditingStyle.Delete {
+    if editingStyle == UITableViewCellEditingStyle.Delete && tableView == self.contactsTableView {
       user?.removeContact(contacts[indexPath.row])
       self.contacts = user!.contacts
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
@@ -72,7 +77,15 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
 
   
   @IBAction func valueChanged(sender: UISegmentedControl) {
-    self.tableView.reloadData()
+    if sender.selectedSegmentIndex == 0 {
+      tableView.reloadData()
+      contactsTableView.hidden = true
+      tableView.hidden = false
+    } else {
+      contactsTableView.reloadData()
+      tableView.hidden = true
+      contactsTableView.hidden = false
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -22,7 +22,7 @@ class NewModalViewController: ApplicationViewController , UITableViewDelegate, U
     user!.createContact(contacts[indexPath.row])
     self.dismissViewControllerAnimated(true, completion: {
       self.mainController?.contacts = self.user!.contacts
-      self.mainController?.tableView.reloadData()
+      self.mainController?.contactsTableView.reloadData()
     })
   }
   

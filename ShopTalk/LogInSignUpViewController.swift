@@ -26,10 +26,9 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
     
     signupView.hidden = true
     
-    PFUser.logOut()
-    if let currentUser = PFUser.currentUser() {
-      presentMainViewController(currentUser.username!)
-    }
+//    if let currentUser = PFUser.currentUser() {
+//      presentMainViewController(currentUser.username!)
+//    }
   }
 
   
@@ -62,7 +61,6 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
        self.performSegueWithIdentifier("login", sender: self)
     }
   }
-  
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -114,7 +112,7 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     var navigationController = segue.destinationViewController as! UINavigationController
     var controller = navigationController.topViewController as! ContactViewController
-    controller.user = user
+    controller.user = self.user
     controller.conversations = conversations
   }
   

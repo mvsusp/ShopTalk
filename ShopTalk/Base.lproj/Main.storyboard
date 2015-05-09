@@ -122,30 +122,37 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mI3-52-KLz" userLabel="ContactsTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mI3-52-KLz" userLabel="ContactsTableView">
                                 <rect key="frame" x="1" y="64" width="599" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Nuc-yD-XvZ" detailTextLabel="xxN-Y6-jUB" style="IBUITableViewCellStyleSubtitle" id="rBc-mu-Z3v">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompanyCell" rowHeight="100" id="rBc-mu-Z3v" customClass="LogoImageCellTableViewCell" customModule="ShopTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="599" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rBc-mu-Z3v" id="2Gs-uI-Lbq">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nuc-yD-XvZ">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xxN-Y6-jUB">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pBU-8x-ow0">
+                                                    <rect key="frame" x="8" y="8" width="583" height="84"/>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pBU-8x-ow0" firstAttribute="top" secondItem="2Gs-uI-Lbq" secondAttribute="topMargin" id="39D-p5-9NZ"/>
+                                                <constraint firstAttribute="centerX" secondItem="pBU-8x-ow0" secondAttribute="centerX" constant="72" id="C7L-8d-DTK"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="pBU-8x-ow0" secondAttribute="bottom" id="Ul5-89-lzl"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pBU-8x-ow0" secondAttribute="trailing" id="aqN-uN-WJN"/>
+                                                <constraint firstAttribute="centerY" secondItem="pBU-8x-ow0" secondAttribute="centerY" id="e7s-dn-i4p"/>
+                                                <constraint firstItem="pBU-8x-ow0" firstAttribute="leading" secondItem="2Gs-uI-Lbq" secondAttribute="leadingMargin" id="ozh-aQ-OqA"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="C7L-8d-DTK"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="logoImageView" destination="pBU-8x-ow0" id="w9L-OV-NA6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -170,7 +177,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Messages"/>
-                                <segment title="Contacts"/>
+                                <segment title="Companies"/>
                             </segments>
                             <connections>
                                 <action selector="valueChanged:" destination="Ahn-tS-jfw" eventType="valueChanged" id="Bq3-2Y-afR"/>
