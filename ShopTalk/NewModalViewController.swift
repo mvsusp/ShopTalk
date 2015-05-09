@@ -1,6 +1,6 @@
 import UIKit
 
-class NewModalViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
+class NewModalViewController: ApplicationViewController , UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var allContactsTableview: UITableView!
   var contacts = [User]()

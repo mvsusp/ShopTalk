@@ -1,6 +1,6 @@
 import UIKit
 
-class MessagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MessagesViewController: ApplicationViewController, UITableViewDelegate, UITableViewDataSource {
   
   var conversation : Conversation?
   var user : User?
@@ -17,7 +17,6 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageArrived:", name: MessageArrivedNotification, object: nil)
   }
   
   func loadConversation() {
@@ -108,7 +107,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
       }, completion: nil)
   }
   
-  func messageArrived(notification: NSNotification) {
+  override func messageArrived(notification: NSNotification) {
     self.conversation?.fetch()
     self.conversation?.lastMessage?.fetch()
     messages.append(self.conversation!.lastMessage!)

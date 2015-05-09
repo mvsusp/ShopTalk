@@ -1,7 +1,7 @@
 import UIKit
 import Parse
 
-class LogInSignUpViewController: UIViewController {
+class LogInSignUpViewController: ApplicationViewController {
   
   @IBOutlet weak var newPwd: UITextField!
   @IBOutlet weak var newUsername: UITextField!

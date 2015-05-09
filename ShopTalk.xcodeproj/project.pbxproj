@@ -12,6 +12,7 @@
 		811979991AEAACB5005AA3A5 /* MyMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */; };
 		811A55971AE728FA00721D0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A55961AE728FA00721D0D /* User.swift */; };
 		814D000D1AF9992D00154A60 /* TheyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814D000C1AF9992D00154A60 /* TheyMessageCell.swift */; };
+		81C3015E1AFE7D860051FA5E /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3015D1AFE7D860051FA5E /* ApplicationViewController.swift */; };
 		81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */; };
 		81D6EFB41AE52F3E000FDEC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB31AE52F3E000FDEC6 /* ContactViewController.swift */; };
 		81D6EFB71AE52F3E000FDEC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D6EFB51AE52F3E000FDEC6 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMessageTableViewCell.swift; sourceTree = "<group>"; };
 		811A55961AE728FA00721D0D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		814D000C1AF9992D00154A60 /* TheyMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheyMessageCell.swift; sourceTree = "<group>"; };
+		81C3015D1AFE7D860051FA5E /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		81D6EFAC1AE52F3E000FDEC6 /* ShopTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D6EFB01AE52F3E000FDEC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				81FB3A941AFA4E7B00E782F0 /* LogInSignUpViewController.swift */,
 				81FB3A971AFC2A3300E782F0 /* NewModalViewController.swift */,
 				81FB3A991AFC465F00E782F0 /* WebsiteViewController.swift */,
+				81C3015D1AFE7D860051FA5E /* ApplicationViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				811A55971AE728FA00721D0D /* User.swift in Sources */,
 				81D6EFB41AE52F3E000FDEC6 /* ContactViewController.swift in Sources */,
 				811979991AEAACB5005AA3A5 /* MyMessageTableViewCell.swift in Sources */,
+				81C3015E1AFE7D860051FA5E /* ApplicationViewController.swift in Sources */,
 				81E9EC441AE5DEBE00F262A5 /* Message.swift in Sources */,
 				81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */,
 				81FB3A9A1AFC465F00E782F0 /* WebsiteViewController.swift in Sources */,

@@ -2,7 +2,6 @@ import Parse
 import Bolts
 import UIKit
 
-let MessageArrivedNotification = "MessageArrived"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -75,13 +74,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func application(application: UIApplication, didReceiveRemoteNotification: [NSObject : AnyObject],  fetchCompletionHandler: (UIBackgroundFetchResult) -> Void) {
-    PFPush.handlePush(didReceiveRemoteNotification)
-    
     if application.applicationState == UIApplicationState.Inactive {
       PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(didReceiveRemoteNotification)
     } else {
       NSNotificationCenter.defaultCenter().postNotificationName(MessageArrivedNotification, object: nil, userInfo: didReceiveRemoteNotification)
     }
+    fetchCompletionHandler(UIBackgroundFetchResult.NewData)
   }
   
   func applicationWillResignActive(application: UIApplication) {
@@ -105,7 +103,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
-
-
 }
 

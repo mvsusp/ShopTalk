@@ -1,7 +1,7 @@
 import UIKit
 import Parse
 
-class ContactViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ContactViewController: ApplicationViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var segmentedControl: UISegmentedControl!
   @IBOutlet weak var tableView: UITableView!
@@ -10,24 +10,30 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
   var contacts = [User]()
   var user : User?
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
     self.tableView.delegate = self
     self.tableView.dataSource = self
-    
     self.contactsTableView.hidden = true
   }
   
   override func viewWillAppear(animated: Bool) {
+    reloadData()
+  }
+  
+  func reloadData(){
     Conversation.findConversations([self.user!]) {
       (conversations) in
       self.conversations = conversations
       self.contacts = self.user!.contacts
       self.tableView.reloadData()
     }
+  }
+
+  override func messageArrived(notification: NSNotification) {
+    super.messageArrived(notification)
+    reloadData()
   }
   
   override func didReceiveMemoryWarning() {

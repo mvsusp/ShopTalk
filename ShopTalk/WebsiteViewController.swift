@@ -1,6 +1,6 @@
 import UIKit
 
-class WebsiteViewController: UIViewController, UIWebViewDelegate {
+class WebsiteViewController: ApplicationViewController, UIWebViewDelegate {
   
   @IBOutlet weak var webview: UIWebView!
   var website: String?
