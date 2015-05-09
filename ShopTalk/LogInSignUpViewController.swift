@@ -26,6 +26,7 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
     
     signupView.hidden = true
     
+    PFUser.logOut()
     if let currentUser = PFUser.currentUser() {
       presentMainViewController(currentUser.username!)
     }
@@ -89,12 +90,16 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
       let pfUser = PFUser()
       pfUser.username = newUsername.text!
       pfUser.password = newPwd.text!
+      
       pfUser.signUpInBackgroundWithBlock {
         (succeeded, error) in
         if error == nil {
           self.user = User.create(self.newUsername.text!)
           self.user?.website = self.website.text
+          self.user?.frontImage = self.frontImage
+          self.user?.logoImage = self.logoImage
           self.user?.saveInBackground()
+
           self.performSegueWithIdentifier("login", sender: self)
 
           

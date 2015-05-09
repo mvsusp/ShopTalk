@@ -6,6 +6,44 @@ class User : PFObject, PFSubclassing {
   @NSManaged var contacts: [User]
   @NSManaged var username: String
   @NSManaged var website: String
+  @NSManaged var frontImageData: NSData?
+  @NSManaged var logoImageData: NSData?
+  
+  var frontImage: UIImage? {
+    get {
+      if frontImageData != nil {
+        return UIImage(data: frontImageData!)
+      }
+      return nil
+    }
+    
+    set(image) {
+      if image == nil {
+        return
+      }
+      
+      let data = UIImageJPEGRepresentation(image!, 0.5)
+      frontImageData = data
+    }
+  }
+  
+  var logoImage: UIImage? {
+    get {
+      if logoImageData != nil {
+        return UIImage(data: logoImageData!)
+      }
+      return nil
+    }
+    
+    set(image) {
+      if image == nil {
+        return
+      }
+      
+      let data = UIImageJPEGRepresentation(image!, 0.5)
+      logoImageData = data
+    }
+  }
   
   static func parseClassName() -> String {
     return "User"
