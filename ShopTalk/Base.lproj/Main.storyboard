@@ -382,8 +382,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ij-fJ-d7y">
-                                <rect key="frame" x="-4" y="56" width="608" height="544"/>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ij-fJ-d7y">
+                                <rect key="frame" x="-4" y="0.0" width="608" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
@@ -391,7 +391,7 @@
                         <constraints>
                             <constraint firstItem="0Ij-fJ-d7y" firstAttribute="bottom" secondItem="AEK-4k-TxX" secondAttribute="top" id="Ger-sj-79P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0Ij-fJ-d7y" secondAttribute="trailing" constant="-20" id="Ve6-zX-bwF"/>
-                            <constraint firstItem="0Ij-fJ-d7y" firstAttribute="topMargin" secondItem="tVM-19-mgQ" secondAttribute="bottom" id="bgG-J9-4Rc"/>
+                            <constraint firstItem="0Ij-fJ-d7y" firstAttribute="top" secondItem="tVM-19-mgQ" secondAttribute="bottom" constant="-64" id="bgG-J9-4Rc"/>
                             <constraint firstItem="0Ij-fJ-d7y" firstAttribute="leading" secondItem="uOz-gP-odB" secondAttribute="leadingMargin" constant="-20" id="dKa-P9-Z2m"/>
                         </constraints>
                     </view>
