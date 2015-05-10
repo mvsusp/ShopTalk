@@ -14,6 +14,9 @@
 		814D000D1AF9992D00154A60 /* TheyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814D000C1AF9992D00154A60 /* TheyMessageCell.swift */; };
 		81C3015E1AFE7D860051FA5E /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3015D1AFE7D860051FA5E /* ApplicationViewController.swift */; };
 		81C301601AFEA69A0051FA5E /* LogoImageCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3015F1AFEA69A0051FA5E /* LogoImageCellTableViewCell.swift */; };
+		81C301631AFEE7460051FA5E /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C301621AFEE7460051FA5E /* PlusButton.swift */; };
+		81C301741AFEFF830051FA5E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C301721AFEFF830051FA5E /* background.png */; };
+		81C301751AFEFF830051FA5E /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C301731AFEFF830051FA5E /* button.png */; };
 		81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */; };
 		81D6EFB41AE52F3E000FDEC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB31AE52F3E000FDEC6 /* ContactViewController.swift */; };
 		81D6EFB71AE52F3E000FDEC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D6EFB51AE52F3E000FDEC6 /* Main.storyboard */; };
@@ -57,6 +60,9 @@
 		814D000C1AF9992D00154A60 /* TheyMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheyMessageCell.swift; sourceTree = "<group>"; };
 		81C3015D1AFE7D860051FA5E /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		81C3015F1AFEA69A0051FA5E /* LogoImageCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoImageCellTableViewCell.swift; sourceTree = "<group>"; };
+		81C301621AFEE7460051FA5E /* PlusButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
+		81C301721AFEFF830051FA5E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		81C301731AFEFF830051FA5E /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		81D6EFAC1AE52F3E000FDEC6 /* ShopTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D6EFB01AE52F3E000FDEC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +124,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81C301611AFEE7260051FA5E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */,
+				814D000C1AF9992D00154A60 /* TheyMessageCell.swift */,
+				81C3015F1AFEA69A0051FA5E /* LogoImageCellTableViewCell.swift */,
+				81C301621AFEE7460051FA5E /* PlusButton.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		81D6EFA31AE52F3E000FDEC6 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */,
+				81C301721AFEFF830051FA5E /* background.png */,
+				81C301731AFEFF830051FA5E /* button.png */,
 				81FB3A961AFC294700E782F0 /* Controllers */,
 				81D6EFB51AE52F3E000FDEC6 /* Main.storyboard */,
 				81D6EFB81AE52F3E000FDEC6 /* Images.xcassets */,
@@ -148,9 +167,7 @@
 				81D6EFAF1AE52F3E000FDEC6 /* Supporting Files */,
 				81E9EC481AE5E23D00F262A5 /* Models */,
 				81E9EC421AE5D55700F262A5 /* ShopTalk-Bridging-Header.h */,
-				811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */,
-				814D000C1AF9992D00154A60 /* TheyMessageCell.swift */,
-				81C3015F1AFEA69A0051FA5E /* LogoImageCellTableViewCell.swift */,
+				81C301611AFEE7260051FA5E /* Views */,
 			);
 			path = ShopTalk;
 			sourceTree = "<group>";
@@ -305,6 +322,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D6EFB71AE52F3E000FDEC6 /* Main.storyboard in Resources */,
+				81C301751AFEFF830051FA5E /* button.png in Resources */,
+				81C301741AFEFF830051FA5E /* background.png in Resources */,
 				81D6EFBC1AE52F3E000FDEC6 /* LaunchScreen.xib in Resources */,
 				81D6EFB91AE52F3E000FDEC6 /* Images.xcassets in Resources */,
 			);
@@ -335,6 +354,7 @@
 				81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */,
 				81FB3A9A1AFC465F00E782F0 /* WebsiteViewController.swift in Sources */,
 				814D000D1AF9992D00154A60 /* TheyMessageCell.swift in Sources */,
+				81C301631AFEE7460051FA5E /* PlusButton.swift in Sources */,
 				81FB3A951AFA4E7B00E782F0 /* LogInSignUpViewController.swift in Sources */,
 				81FB3A981AFC2A3300E782F0 /* NewModalViewController.swift in Sources */,
 			);
