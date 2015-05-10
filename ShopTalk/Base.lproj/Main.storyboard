@@ -324,18 +324,19 @@
                                     <barButtonItem width="1" style="plain" systemItem="fixedSpace" id="rpj-p0-Ebr"/>
                                     <barButtonItem style="plain" id="r7g-T6-Sqj">
                                         <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="RhK-3R-G9o" userLabel="messageTextField">
-                                            <rect key="frame" x="17" y="7" width="242" height="30"/>
+                                            <rect key="frame" x="17" y="7" width="290" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                     </barButtonItem>
+                                    <barButtonItem width="1" style="plain" systemItem="fixedSpace" id="y2q-Xp-W0v"/>
                                     <barButtonItem title="Send" id="2O5-9L-h3x">
                                         <connections>
                                             <action selector="sendButtonPressed:" destination="mpq-br-vkS" id="mlP-1N-rkb"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="1" style="plain" systemItem="fixedSpace" id="y2q-Xp-W0v"/>
+                                    <barButtonItem width="1" style="plain" systemItem="fixedSpace" id="o5R-Uf-5u9"/>
                                 </items>
                             </toolbar>
                         </subviews>
