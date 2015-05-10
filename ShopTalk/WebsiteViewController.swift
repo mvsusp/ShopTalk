@@ -8,9 +8,24 @@ class WebsiteViewController: ApplicationViewController, UIWebViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    
     webview.loadRequest(NSURLRequest(URL: NSURL(string: "http://" + website!)!))
     webview.delegate = self
+  }
+  
+  override func prefersStatusBarHidden() -> Bool {
+    return true
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
     UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Slide)
   }
   
   override func didReceiveMemoryWarning() {
