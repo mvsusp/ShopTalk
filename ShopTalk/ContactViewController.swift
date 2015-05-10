@@ -103,14 +103,16 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
         controller.allContactsTableview.reloadData()
       }
     } else {
-      var index = self.tableView.indexPathForSelectedRow()!
       var controller = segue.destinationViewController as! MessagesViewController
       controller.user = user
       
       if segmentedControl.selectedSegmentIndex == 0 {
+        var index = self.tableView.indexPathForSelectedRow()!
         controller.conversation = conversations[index.row]
         controller.loadConversation()
       } else {
+        var index = self.contactsTableView.indexPathForSelectedRow()!
+
         let people = [self.user!, self.contacts[index.row]]
         Conversation.findConversations( people, block: {
           (conversations) in

@@ -154,6 +154,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="logoImageView" destination="pBU-8x-ow0" id="w9L-OV-NA6"/>
+                                            <segue destination="mpq-br-vkS" kind="show" id="nkM-1l-4Of"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -611,4 +612,7 @@
             <point key="canvasLocation" x="908" y="548"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nkM-1l-4Of"/>
+    </inferredMetricsTieBreakers>
 </document>
