@@ -443,7 +443,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                         <color key="sectionIndexBackgroundColor" red="0.96078431369999995" green="0.1058823529" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
-                                            <tableViewCell opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyMessageCell" id="mkG-3h-1gQ" customClass="MyMessageTableViewCell" customModule="ShopTalk" customModuleProvider="target">
+                                            <tableViewCell opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyMessageCell" id="mkG-3h-1gQ" customClass="MyMessageTableViewCell" customModule="ShopTalk" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="599" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" tableViewCell="mkG-3h-1gQ" id="PEr-sQ-9R7">
@@ -491,7 +491,7 @@
                                                     <outlet property="content" destination="5jv-KZ-GyV" id="eM6-LI-NsU"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TheyMessageCell" id="rq8-lP-yiC" userLabel="TheyMessageCell" customClass="TheyMessageCell" customModule="ShopTalk" customModuleProvider="target">
+                                            <tableViewCell opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TheyMessageCell" id="rq8-lP-yiC" userLabel="TheyMessageCell" customClass="TheyMessageCell" customModule="ShopTalk" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="599" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rq8-lP-yiC" id="RSK-XA-Cdf">
@@ -541,7 +541,7 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXd-U6-nKz">
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="XXd-U6-nKz">
                                         <rect key="frame" x="0.0" y="256" width="600" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="7B6-Gr-a3S"/>
@@ -564,6 +564,7 @@
                                             </barButtonItem>
                                             <barButtonItem width="1" style="plain" systemItem="fixedSpace" id="ySj-xO-2po"/>
                                         </items>
+                                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </toolbar>
                                 </subviews>
                                 <constraints>
