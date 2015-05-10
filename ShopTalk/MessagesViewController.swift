@@ -130,5 +130,9 @@ class MessagesViewController: ApplicationViewController, UITableViewDelegate, UI
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     let controller = segue.destinationViewController as! WebsiteViewController
     controller.website = conversation!.otherUsers(user!).first?.website
+    controller.conversation = conversation
+    controller.user = user
+    controller.loadConversation()
+
   }
 }
