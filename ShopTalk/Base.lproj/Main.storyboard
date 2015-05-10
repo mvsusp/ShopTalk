@@ -391,7 +391,7 @@
                                     <constraint firstAttribute="height" constant="40" id="c3r-RC-BPm"/>
                                     <constraint firstAttribute="width" constant="40" id="gCe-LZ-58x"/>
                                 </constraints>
-                                <state key="normal" image="closebutton.png" backgroundImage="closebuttonBackground.png">
+                                <state key="normal" image="completeclosebutton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -852,8 +852,7 @@
     <resources>
         <image name="background.png" width="610" height="610"/>
         <image name="button.png" width="264" height="208"/>
-        <image name="closebutton.png" width="100" height="100"/>
-        <image name="closebuttonBackground.png" width="220" height="220"/>
+        <image name="completeclosebutton.png" width="44" height="44"/>
         <image name="hibutton.png" width="135" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>

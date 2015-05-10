@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8101C6721AFCE607001B885A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101C6701AFCE607001B885A /* Bolts.framework */; };
 		8101C6731AFCE607001B885A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101C6711AFCE607001B885A /* Parse.framework */; };
+		810D39801AFFDEBF00DBE9E2 /* completeclosebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 810D397F1AFFDEBF00DBE9E2 /* completeclosebutton.png */; };
 		811979991AEAACB5005AA3A5 /* MyMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */; };
 		811A55971AE728FA00721D0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A55961AE728FA00721D0D /* User.swift */; };
 		814D000D1AF9992D00154A60 /* TheyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814D000C1AF9992D00154A60 /* TheyMessageCell.swift */; };
@@ -58,6 +59,7 @@
 /* Begin PBXFileReference section */
 		8101C6701AFCE607001B885A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		8101C6711AFCE607001B885A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		810D397F1AFFDEBF00DBE9E2 /* completeclosebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = completeclosebutton.png; sourceTree = "<group>"; };
 		811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMessageTableViewCell.swift; sourceTree = "<group>"; };
 		811A55961AE728FA00721D0D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		814D000C1AF9992D00154A60 /* TheyMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheyMessageCell.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				81C3017A1AFF1ED50051FA5E /* hibutton.png */,
 				81C301771AFF0BAE0051FA5E /* closebuttonBackground.png */,
 				81C301721AFEFF830051FA5E /* background.png */,
+				810D397F1AFFDEBF00DBE9E2 /* completeclosebutton.png */,
 				81C301731AFEFF830051FA5E /* button.png */,
 				81FB3A961AFC294700E782F0 /* Controllers */,
 				81D6EFB51AE52F3E000FDEC6 /* Main.storyboard */,
@@ -332,6 +335,7 @@
 			files = (
 				81D6EFB71AE52F3E000FDEC6 /* Main.storyboard in Resources */,
 				81C301751AFEFF830051FA5E /* button.png in Resources */,
+				810D39801AFFDEBF00DBE9E2 /* completeclosebutton.png in Resources */,
 				81C301741AFEFF830051FA5E /* background.png in Resources */,
 				81D6EFBC1AE52F3E000FDEC6 /* LaunchScreen.xib in Resources */,
 				81C3017B1AFF1ED50051FA5E /* hibutton.png in Resources */,
