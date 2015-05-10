@@ -1,6 +1,6 @@
 import UIKit
 
-class WebsiteViewController: ApplicationViewController, UIWebViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIWebViewDelegate, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var webview: UIWebView!
   @IBOutlet weak var tableView: UITableView!
@@ -15,9 +15,8 @@ class WebsiteViewController: ApplicationViewController, UIWebViewDelegate, UITab
   @IBOutlet weak var superButton: PlusButton!
   @IBOutlet weak var hiButton: UIButton!
   
-  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
-  
+  @IBOutlet weak var superTableBottomXConstraint: NSLayoutConstraint!
   @IBOutlet weak var closeButtonXConstraint: NSLayoutConstraint!
   @IBOutlet weak var hiButtonXConstraint: NSLayoutConstraint!
   
@@ -33,6 +32,7 @@ class WebsiteViewController: ApplicationViewController, UIWebViewDelegate, UITab
     webview.delegate = self
     self.tableView.delegate = self
     self.tableView.dataSource = self
+    messageTextField.delegate = self
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
@@ -59,6 +59,7 @@ class WebsiteViewController: ApplicationViewController, UIWebViewDelegate, UITab
       let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)
       tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: animated)
     }
+    self.view.layoutSubviews()
   }
   
   func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -110,9 +111,16 @@ class WebsiteViewController: ApplicationViewController, UIWebViewDelegate, UITab
     let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSTimeInterval
     
     UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-      self.bottomConstraint.constant += keyboardSize
+      self.superTableBottomXConstraint.constant += keyboardSize
+      
+      if self.superButtonYConstraint.constant < keyboardSize + 100 {
+        self.superButtonYConstraint.constant = keyboardSize + 100
+        self.view.layoutSubviews()
+      }
+      
       }, completion: { (success) in
-        self.scrollMessages()
+//        self.scrollMessages()
+//        self.view.layoutSubviews()
       }
     )
   }
@@ -120,8 +128,11 @@ class WebsiteViewController: ApplicationViewController, UIWebViewDelegate, UITab
   func keyboardWillHide(notification: NSNotification) {
     let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSTimeInterval
     UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-      self.bottomConstraint.constant = 0
-      
+      self.superTableBottomXConstraint.constant = 0
+      self.scrollMessages()
+
+      self.view.layoutSubviews()
+
       }, completion: nil)
   }
   
@@ -131,18 +142,27 @@ class WebsiteViewController: ApplicationViewController, UIWebViewDelegate, UITab
     messages.append(self.conversation!.lastMessage!)
     let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)!
     self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-    self.scrollMessages()
+//    self.scrollMessages()
   }
   
-  @IBAction func sendButtonPressed(sender: UIBarButtonItem) {
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
     if let messageBody = messageTextField.text {
       let message = Message.send(user!, body: messageBody, conversation: conversation!)
       messageTextField.text = ""
       messages.append(message)
       let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)!
       self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-      self.scrollMessages()
+//      self.scrollMessages()
+      self.messageTextField.resignFirstResponder()
+      
+      return true
     }
+    return false
+  }
+  
+  
+  @IBAction func sendButtonPressed(sender: UIBarButtonItem) {
+
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
