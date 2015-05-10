@@ -41,10 +41,13 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     
-    self.centerYSuperTable.constant = self.superButtonYConstraint.constant
+    
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
     self.centerYSuperTable.active = false
-    self.toolbarHeightConstraint.constant = 0
-    self.tableViewBottomConstraint.constant = 0
+    self.view.layoutSubviews()
   }
   
   func loadConversation() {
@@ -215,12 +218,13 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
       })
       
     } else {
-      
+      self.centerYSuperTable.constant = self.superButtonYConstraint.constant
+
       self.toolbarHeightConstraint.constant = 44
       self.tableViewBottomConstraint.constant = 44
       self.centerYSuperTable.active = true
       self.view.layoutSubviews()
-
+      
       UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options:  UIViewAnimationOptions.CurveEaseOut, animations: {
         self.centerYSuperTable.constant = 0
         self.view.layoutSubviews()
@@ -274,14 +278,14 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
       let center = sender.locationInView(self.view)
       superButtonXConstraint.constant = self.view.bounds.width - center.x - superButton.bounds.width
       superButtonYConstraint.constant = self.view.bounds.height - center.y - superButton.bounds.height
-//      self.centerYSuperTable.constant = self.superButtonYConstraint.constant
-
+      //      self.centerYSuperTable.constant = self.superButtonYConstraint.constant
+      
     case .Changed:
       let center = sender.locationInView(self.view)
       superButtonXConstraint.constant = self.view.bounds.width - center.x - superButton.bounds.width
       superButtonYConstraint.constant = self.view.bounds.height - center.y - superButton.bounds.height
-//      self.centerYSuperTable.constant = self.superButtonYConstraint.constant
-
+      //      self.centerYSuperTable.constant = self.superButtonYConstraint.constant
+      
     default:
       println("at least one executatble statement")
       //do nothing
