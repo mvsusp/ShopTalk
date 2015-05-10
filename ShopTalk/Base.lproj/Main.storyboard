@@ -407,6 +407,9 @@
                                 <state key="normal" image="hibutton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="hiButtonPressed:" destination="th0-49-mFn" eventType="touchUpInside" id="O3x-QI-Esn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dG-XJ-1Sc" userLabel="superButton" customClass="PlusButton" customModule="ShopTalk" customModuleProvider="target">
                                 <rect key="frame" x="220" y="41" width="64" height="59"/>
@@ -435,7 +438,7 @@
                                     <outletCollection property="gestureRecognizers" destination="Q9Z-NZ-Yq9" appends="YES" id="1Wz-rO-n7d"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eND-Qy-VUE" userLabel="superButtonTable">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eND-Qy-VUE" userLabel="superButtonTable">
                                 <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="INB-iH-SQ6">
@@ -541,18 +544,18 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <view opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PKO-Wl-tF9" userLabel="toolbar">
+                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKO-Wl-tF9" userLabel="toolbar">
                                         <rect key="frame" x="0.0" y="456" width="600" height="44"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Message" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w7Y-aj-GU3">
-                                                <rect key="frame" x="20" y="8" width="560" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Message" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w7Y-aj-GU3">
+                                                <rect key="frame" x="20" y="7" width="560" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="centerY" secondItem="w7Y-aj-GU3" secondAttribute="centerY" constant="-1" id="Ln0-Pd-gN5"/>
+                                            <constraint firstAttribute="centerY" secondItem="w7Y-aj-GU3" secondAttribute="centerY" id="Ln0-Pd-gN5"/>
                                             <constraint firstItem="w7Y-aj-GU3" firstAttribute="leading" secondItem="PKO-Wl-tF9" secondAttribute="leading" constant="20" id="Rdr-ha-1kk"/>
                                             <constraint firstAttribute="centerX" secondItem="w7Y-aj-GU3" secondAttribute="centerX" id="WJH-nV-AA4"/>
                                             <constraint firstAttribute="trailing" secondItem="w7Y-aj-GU3" secondAttribute="trailing" constant="20" id="elQ-Fw-Qlw"/>
@@ -572,13 +575,16 @@
                                     <constraint firstItem="PKO-Wl-tF9" firstAttribute="top" secondItem="INB-iH-SQ6" secondAttribute="bottom" id="dY5-mc-0aG"/>
                                     <constraint firstItem="INB-iH-SQ6" firstAttribute="leadingMargin" secondItem="eND-Qy-VUE" secondAttribute="leadingMargin" id="gpC-2n-ae8"/>
                                     <constraint firstAttribute="centerX" secondItem="PKO-Wl-tF9" secondAttribute="centerX" id="hPM-5F-mIs"/>
-                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="PKO-Wl-tF9" secondAttribute="bottom" id="km2-3O-mKU"/>
+                                    <constraint firstItem="PKO-Wl-tF9" firstAttribute="top" secondItem="INB-iH-SQ6" secondAttribute="bottom" priority="750" id="kVs-mj-piZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="PKO-Wl-tF9" secondAttribute="bottom" id="km2-3O-mKU"/>
                                     <constraint firstItem="PKO-Wl-tF9" firstAttribute="width" secondItem="eND-Qy-VUE" secondAttribute="width" id="uYv-nC-X0s"/>
-                                    <constraint firstAttribute="bottom" secondItem="INB-iH-SQ6" secondAttribute="bottom" constant="44" id="x5M-dj-sVx"/>
+                                    <constraint firstAttribute="bottom" secondItem="INB-iH-SQ6" secondAttribute="bottom" priority="750" constant="44" id="x5M-dj-sVx"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="KhZ-wN-4rZ"/>
                                         <exclude reference="dY5-mc-0aG"/>
+                                        <exclude reference="kVs-mj-piZ"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -599,9 +605,16 @@
                             <constraint firstItem="8dG-XJ-1Sc" firstAttribute="centerX" secondItem="fEv-FL-jlQ" secondAttribute="centerX" id="wW0-XP-GKQ"/>
                             <constraint firstItem="eND-Qy-VUE" firstAttribute="width" secondItem="uOz-gP-odB" secondAttribute="width" id="x6C-51-SPf"/>
                             <constraint firstItem="8dG-XJ-1Sc" firstAttribute="centerY" secondItem="fEv-FL-jlQ" secondAttribute="centerY" id="xw1-Xz-ylm"/>
+                            <constraint firstItem="eND-Qy-VUE" firstAttribute="top" secondItem="8dG-XJ-1Sc" secondAttribute="bottom" id="zI6-lp-DC1"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UZW-BH-XUF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="centerYSuperTable" destination="zI6-lp-DC1" id="QaU-kd-EH3"/>
                         <outlet property="closeButton" destination="hbm-Lf-yWa" id="mua-fW-GE0"/>
                         <outlet property="closeButtonXConstraint" destination="6ei-bu-CzA" id="wCQ-uG-Hqg"/>
                         <outlet property="hiButton" destination="fEv-FL-jlQ" id="kuH-Tj-HV6"/>
@@ -612,6 +625,8 @@
                         <outlet property="superButtonYConstraint" destination="55a-Y3-cjv" id="lfL-ad-b6W"/>
                         <outlet property="superTableBottomXConstraint" destination="aAk-rR-MOY" id="KeC-dU-61L"/>
                         <outlet property="tableView" destination="INB-iH-SQ6" id="a9L-02-Ez0"/>
+                        <outlet property="tableViewBottomConstraint" destination="x5M-dj-sVx" id="ipw-nb-Pqm"/>
+                        <outlet property="toolbarHeightConstraint" destination="isL-gK-5xk" id="ahm-hb-xHJ"/>
                         <outlet property="webview" destination="0Ij-fJ-d7y" id="8Ii-uV-h1d"/>
                     </connections>
                 </viewController>

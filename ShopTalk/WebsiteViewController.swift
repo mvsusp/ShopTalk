@@ -5,17 +5,18 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
   @IBOutlet weak var webview: UIWebView!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var messageTextField: UITextField!
-
+  
   var website: String?
   var conversation: Conversation?
   var messages : [Message] = []
   var user : User?
-
+  
   @IBOutlet weak var closeButton: UIButton!
   @IBOutlet weak var superButton: PlusButton!
   @IBOutlet weak var hiButton: UIButton!
   
-
+  @IBOutlet weak var centerYSuperTable: NSLayoutConstraint!
+  
   @IBOutlet weak var superTableBottomXConstraint: NSLayoutConstraint!
   @IBOutlet weak var closeButtonXConstraint: NSLayoutConstraint!
   @IBOutlet weak var hiButtonXConstraint: NSLayoutConstraint!
@@ -23,6 +24,9 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
   @IBOutlet weak var superButtonXConstraint: NSLayoutConstraint!
   @IBOutlet weak var superButtonYConstraint: NSLayoutConstraint!
   var areButtonsHidden = true
+  
+  @IBOutlet weak var toolbarHeightConstraint: NSLayoutConstraint!
+  @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,6 +40,11 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    
+    self.centerYSuperTable.constant = self.superButtonYConstraint.constant
+    self.centerYSuperTable.active = false
+    self.toolbarHeightConstraint.constant = 0
+    self.tableViewBottomConstraint.constant = 0
   }
   
   func loadConversation() {
@@ -119,8 +128,8 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
       }
       
       }, completion: { (success) in
-//        self.scrollMessages()
-//        self.view.layoutSubviews()
+        //        self.scrollMessages()
+        //        self.view.layoutSubviews()
       }
     )
   }
@@ -130,9 +139,9 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
     UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseOut, animations: {
       self.superTableBottomXConstraint.constant = 0
       self.scrollMessages()
-
+      
       self.view.layoutSubviews()
-
+      
       }, completion: nil)
   }
   
@@ -142,7 +151,7 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
     messages.append(self.conversation!.lastMessage!)
     let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)!
     self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-//    self.scrollMessages()
+    //    self.scrollMessages()
   }
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -152,17 +161,12 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
       messages.append(message)
       let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)!
       self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-//      self.scrollMessages()
+      //      self.scrollMessages()
       self.messageTextField.resignFirstResponder()
       
       return true
     }
     return false
-  }
-  
-  
-  @IBAction func sendButtonPressed(sender: UIBarButtonItem) {
-
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -194,8 +198,40 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
     
   }
   
+  @IBAction func hiButtonPressed(sender: UIButton) {
+    hiButton.userInteractionEnabled = false
+    if self.centerYSuperTable.constant == 0 {
+      UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+        self.centerYSuperTable.constant = self.superButtonYConstraint.constant
+        self.view.layoutSubviews()
+        
+        }, completion: {
+          (_)in
+          self.centerYSuperTable.active = false
+          self.toolbarHeightConstraint.constant = 0
+          self.tableViewBottomConstraint.constant = 0
+          self.view.layoutSubviews()
+          self.hiButton.userInteractionEnabled = true
+      })
+      
+    } else {
+      
+      self.toolbarHeightConstraint.constant = 44
+      self.tableViewBottomConstraint.constant = 44
+      self.centerYSuperTable.active = true
+      self.view.layoutSubviews()
+
+      UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options:  UIViewAnimationOptions.CurveEaseOut, animations: {
+        self.centerYSuperTable.constant = 0
+        self.view.layoutSubviews()
+        
+        }, completion: {(_) in self.hiButton.userInteractionEnabled = true })
+    }
+    
+  }
+  
   @IBAction func closeButtonPressed(sender: UIButton) {
-      self.dismissViewControllerAnimated(true, completion: nil)
+    self.dismissViewControllerAnimated(true, completion: nil)
   }
   
   @IBAction func plusButtonPressed(sender: PlusButton) {
@@ -204,7 +240,7 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
       closeButton.hidden = false
       hiButton.hidden = false
       areButtonsHidden = false
-
+      
       UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseOut, animations: {
         
         self.closeButtonXConstraint.constant = -60
@@ -224,7 +260,7 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
           self.closeButton.hidden = true
           self.hiButton.hidden = true
           self.view.layoutSubviews()
-
+          
       })
     }
     
@@ -238,14 +274,14 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
       let center = sender.locationInView(self.view)
       superButtonXConstraint.constant = self.view.bounds.width - center.x - superButton.bounds.width
       superButtonYConstraint.constant = self.view.bounds.height - center.y - superButton.bounds.height
-      //      superButton.center = sender.locationInView(self.view)
-      //      closeButton.center = sender.locationInView(self.view)
+//      self.centerYSuperTable.constant = self.superButtonYConstraint.constant
+
     case .Changed:
       let center = sender.locationInView(self.view)
       superButtonXConstraint.constant = self.view.bounds.width - center.x - superButton.bounds.width
       superButtonYConstraint.constant = self.view.bounds.height - center.y - superButton.bounds.height
-      //      superButton.center = sender.locationInView(self.view)
-      //      closeButton.center = sender.locationInView(self.view)
+//      self.centerYSuperTable.constant = self.superButtonYConstraint.constant
+
     default:
       println("at least one executatble statement")
       //do nothing
