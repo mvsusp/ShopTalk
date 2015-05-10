@@ -386,8 +386,26 @@
                                 <rect key="frame" x="-4" y="19" width="608" height="581"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dG-XJ-1Sc" customClass="PlusButton" customModule="ShopTalk" customModuleProvider="target">
-                                <rect key="frame" x="56" y="74" width="64" height="59"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbm-Lf-yWa" userLabel="closeButton">
+                                <rect key="frame" x="502" y="521" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="c3r-RC-BPm"/>
+                                    <constraint firstAttribute="width" constant="40" id="gCe-LZ-58x"/>
+                                </constraints>
+                                <state key="normal" image="closebutton.png" backgroundImage="closebuttonBackground.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="th0-49-mFn" eventType="touchUpInside" id="FlF-zE-567"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dG-XJ-1Sc" userLabel="superButton" customClass="PlusButton" customModule="ShopTalk" customModuleProvider="target">
+                                <rect key="frame" x="490" y="511" width="64" height="59"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="KIh-H1-Huj"/>
+                                    <constraint firstAttribute="height" constant="59" id="T47-mQ-iNz"/>
+                                </constraints>
                                 <state key="normal" image="button.png" backgroundImage="background.png">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -403,21 +421,39 @@
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="plusButtonPressed:" destination="th0-49-mFn" eventType="touchUpInside" id="Swg-c7-Npc"/>
+                                    <outletCollection property="gestureRecognizers" destination="Q9Z-NZ-Yq9" appends="YES" id="1Wz-rO-n7d"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AEK-4k-TxX" firstAttribute="top" secondItem="8dG-XJ-1Sc" secondAttribute="bottom" constant="30" id="55a-Y3-cjv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8dG-XJ-1Sc" secondAttribute="trailing" constant="30" id="5jK-r2-mDq"/>
+                            <constraint firstItem="8dG-XJ-1Sc" firstAttribute="centerX" secondItem="hbm-Lf-yWa" secondAttribute="centerX" id="6ei-bu-CzA"/>
                             <constraint firstItem="0Ij-fJ-d7y" firstAttribute="bottom" secondItem="AEK-4k-TxX" secondAttribute="top" id="Ger-sj-79P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0Ij-fJ-d7y" secondAttribute="trailing" constant="-20" id="Ve6-zX-bwF"/>
+                            <constraint firstItem="8dG-XJ-1Sc" firstAttribute="centerY" secondItem="hbm-Lf-yWa" secondAttribute="centerY" id="ZNq-cq-8eH"/>
                             <constraint firstItem="0Ij-fJ-d7y" firstAttribute="topMargin" secondItem="tVM-19-mgQ" secondAttribute="bottom" constant="7" id="bgG-J9-4Rc"/>
                             <constraint firstItem="0Ij-fJ-d7y" firstAttribute="leading" secondItem="uOz-gP-odB" secondAttribute="leadingMargin" constant="-20" id="dKa-P9-Z2m"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="hbm-Lf-yWa" id="mua-fW-GE0"/>
+                        <outlet property="closeButtonXConstraint" destination="6ei-bu-CzA" id="wCQ-uG-Hqg"/>
+                        <outlet property="superButton" destination="8dG-XJ-1Sc" id="LuT-DY-MPO"/>
+                        <outlet property="superButtonXConstraint" destination="5jK-r2-mDq" id="uJ6-yU-WSM"/>
+                        <outlet property="superButtonYConstraint" destination="55a-Y3-cjv" id="lfL-ad-b6W"/>
                         <outlet property="webview" destination="0Ij-fJ-d7y" id="8Ii-uV-h1d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gh-dt-1H4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Q9Z-NZ-Yq9">
+                    <connections>
+                        <action selector="dragged:" destination="th0-49-mFn" id="7zo-i9-oN8"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3182" y="548"/>
         </scene>
@@ -632,8 +668,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background.png" width="570" height="570"/>
+        <image name="background.png" width="610" height="610"/>
         <image name="button.png" width="264" height="208"/>
+        <image name="closebutton.png" width="100" height="100"/>
+        <image name="closebuttonBackground.png" width="220" height="220"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nkM-1l-4Of"/>
