@@ -7,8 +7,10 @@ class WebsiteViewController: ApplicationViewController, UIWebViewDelegate {
   
   @IBOutlet weak var closeButton: UIButton!
   @IBOutlet weak var superButton: PlusButton!
+  @IBOutlet weak var hiButton: UIButton!
   
   @IBOutlet weak var closeButtonXConstraint: NSLayoutConstraint!
+  @IBOutlet weak var hiButtonXConstraint: NSLayoutConstraint!
   
   @IBOutlet weak var superButtonXConstraint: NSLayoutConstraint!
   @IBOutlet weak var superButtonYConstraint: NSLayoutConstraint!
@@ -58,23 +60,27 @@ class WebsiteViewController: ApplicationViewController, UIWebViewDelegate {
     
     if areButtonsHidden {
       closeButton.hidden = false
+      hiButton.hidden = false
       areButtonsHidden = false
 
       UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseOut, animations: {
         
         self.closeButtonXConstraint.constant = -60
+        self.hiButtonXConstraint.constant = 60
         self.view.layoutSubviews()
         }, completion: nil)
     } else {
       
       UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
         self.closeButtonXConstraint.constant = 0
+        self.hiButtonXConstraint.constant = 0
         self.view.layoutSubviews()
         
         },
         completion: {(_)in
           self.areButtonsHidden = true
           self.closeButton.hidden = true
+          self.hiButton.hidden = true
           self.view.layoutSubviews()
 
       })

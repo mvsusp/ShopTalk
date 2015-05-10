@@ -399,6 +399,16 @@
                                     <action selector="closeButtonPressed:" destination="th0-49-mFn" eventType="touchUpInside" id="FlF-zE-567"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEv-FL-jlQ" userLabel="hiButton">
+                                <rect key="frame" x="502" y="521" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MOo-Ag-gHr"/>
+                                    <constraint firstAttribute="width" constant="40" id="RaD-EJ-b6a"/>
+                                </constraints>
+                                <state key="normal" image="hibutton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dG-XJ-1Sc" userLabel="superButton" customClass="PlusButton" customModule="ShopTalk" customModuleProvider="target">
                                 <rect key="frame" x="490" y="511" width="64" height="59"/>
                                 <gestureRecognizers/>
@@ -437,11 +447,15 @@
                             <constraint firstItem="8dG-XJ-1Sc" firstAttribute="centerY" secondItem="hbm-Lf-yWa" secondAttribute="centerY" id="ZNq-cq-8eH"/>
                             <constraint firstItem="0Ij-fJ-d7y" firstAttribute="topMargin" secondItem="tVM-19-mgQ" secondAttribute="bottom" constant="7" id="bgG-J9-4Rc"/>
                             <constraint firstItem="0Ij-fJ-d7y" firstAttribute="leading" secondItem="uOz-gP-odB" secondAttribute="leadingMargin" constant="-20" id="dKa-P9-Z2m"/>
+                            <constraint firstItem="8dG-XJ-1Sc" firstAttribute="centerX" secondItem="fEv-FL-jlQ" secondAttribute="centerX" id="wW0-XP-GKQ"/>
+                            <constraint firstItem="8dG-XJ-1Sc" firstAttribute="centerY" secondItem="fEv-FL-jlQ" secondAttribute="centerY" id="xw1-Xz-ylm"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="hbm-Lf-yWa" id="mua-fW-GE0"/>
                         <outlet property="closeButtonXConstraint" destination="6ei-bu-CzA" id="wCQ-uG-Hqg"/>
+                        <outlet property="hiButton" destination="fEv-FL-jlQ" id="kuH-Tj-HV6"/>
+                        <outlet property="hiButtonXConstraint" destination="wW0-XP-GKQ" id="4jZ-m4-atV"/>
                         <outlet property="superButton" destination="8dG-XJ-1Sc" id="LuT-DY-MPO"/>
                         <outlet property="superButtonXConstraint" destination="5jK-r2-mDq" id="uJ6-yU-WSM"/>
                         <outlet property="superButtonYConstraint" destination="55a-Y3-cjv" id="lfL-ad-b6W"/>
@@ -672,6 +686,7 @@
         <image name="button.png" width="264" height="208"/>
         <image name="closebutton.png" width="100" height="100"/>
         <image name="closebuttonBackground.png" width="220" height="220"/>
+        <image name="hibutton.png" width="135" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nkM-1l-4Of"/>
