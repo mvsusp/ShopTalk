@@ -33,17 +33,21 @@ class NewModalViewController: ApplicationViewController , UITableViewDelegate, U
     self.mainController?.segmentedControl.selectedSegmentIndex = 1
     self.dismissViewControllerAnimated(true, completion: {(_) in })
   }
-
+  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return contacts.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     var cell = tableView.dequeueReusableCellWithIdentifier("addContactCell") as! UITableViewCell
-      var user = self.contacts[indexPath.row]
-      cell.textLabel?.text = user.username
-      cell.detailTextLabel?.text = user.website
-      return cell
+    var user = self.contacts[indexPath.row]
+    cell.textLabel?.text = user.username
+    cell.detailTextLabel?.text = user.about
+    cell.imageView?.layer.cornerRadius = 3
+    cell.imageView?.layer.masksToBounds = true
+    cell.imageView?.image = user.logoImage
+    
+    return cell
   }
   
 }

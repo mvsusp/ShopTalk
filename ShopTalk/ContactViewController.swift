@@ -73,7 +73,9 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
       var contact = conversation.otherUsers(self.user!).first!
       cell.textLabel?.text = contact.username
       cell.detailTextLabel?.text = conversation.lastMessage?.content
-      cell.imageView?.image = contact.frontImage
+      cell.imageView?.layer.cornerRadius = 3
+      cell.imageView?.layer.masksToBounds = true
+      cell.imageView?.image = contact.logoImage
       return cell
     } else {
       var cell = tableView.dequeueReusableCellWithIdentifier("CompanyCell") as! LogoImageCellTableViewCell
