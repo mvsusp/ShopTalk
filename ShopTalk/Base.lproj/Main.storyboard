@@ -121,11 +121,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mI3-52-KLz" userLabel="ContactsTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mI3-52-KLz" userLabel="ContactsTableView">
                                 <rect key="frame" x="1" y="70" width="599" height="530"/>
                                 <gestureRecognizers/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CompanyCell" textLabel="3pK-RE-ZFD" detailTextLabel="i6A-8Q-N7W" style="IBUITableViewCellStyleSubtitle" id="rBc-mu-Z3v" customClass="LogoImageCellTableViewCell" customModule="ShopTalk" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CompanyCell" textLabel="3pK-RE-ZFD" detailTextLabel="i6A-8Q-N7W" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="rBc-mu-Z3v" customClass="LogoImageCellTableViewCell" customModule="ShopTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="599" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rBc-mu-Z3v" id="2Gs-uI-Lbq">
@@ -134,7 +134,6 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3pK-RE-ZFD">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i6A-8Q-N7W">

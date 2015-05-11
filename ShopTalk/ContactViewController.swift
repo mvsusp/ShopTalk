@@ -81,8 +81,10 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
       var contact = self.contacts[indexPath.row]
       cell.textLabel?.text = contact.username
       cell.detailTextLabel?.text = contact.about
+      cell.imageView?.layer.cornerRadius = 3
+      cell.imageView?.layer.masksToBounds = true
       cell.imageView?.image = contact.logoImage
-//      cell.logoImageView.image = contact.logoImage
+
       return cell
     }
   }

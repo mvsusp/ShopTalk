@@ -13,7 +13,16 @@ class User : PFObject, PFSubclassing {
   var frontImage: UIImage? {
     get {
       if frontImageData != nil {
-        return UIImage(data: frontImageData!)
+        
+        var image = UIImage(data: frontImageData!)
+        
+        let newSize = CGSizeMake(20, 20)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        image?.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return newImage
       }
       return nil
     }
@@ -31,7 +40,16 @@ class User : PFObject, PFSubclassing {
   var logoImage: UIImage? {
     get {
       if logoImageData != nil {
-        return UIImage(data: logoImageData!)
+        
+        var image = UIImage(data: logoImageData!)
+        
+        let newSize = CGSizeMake(50, 50)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        image?.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return newImage
       }
       return nil
     }
