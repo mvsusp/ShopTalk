@@ -19,22 +19,20 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
     self.contactsTableView.dataSource = self
     self.contactsTableView.hidden = true
     
-    var attr = [
-      NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBold", size: 16.0)!,
-      NSForegroundColorAttributeName : UIColor(red: 21/255.0, green: 202/255.0, blue: 249/255.0, alpha: 1)
-    ]
-    UISegmentedControl.appearance().setTitleTextAttributes(attr, forState: .Normal)
-    
-    var attr2 = [
-      NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBold", size: 16.0)!,
-      NSForegroundColorAttributeName : UIColor.whiteColor()
-    ]
-    UISegmentedControl.appearance().setTitleTextAttributes(attr2, forState: .Selected)
-    UISegmentedControl.appearance().tintColor = UIColor(red: 21/255.0, green: 202/255.0, blue: 249/255.0, alpha: 1)
-    
-    self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
-    
-    self.navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+//    var attr = [
+//      NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBold", size: 16.0)!
+//      ,
+//      NSForegroundColorAttributeName : UIColor(red: 21/255.0, green: 202/255.0, blue: 249/255.0, alpha: 1)
+//    ]
+//    UISegmentedControl.appearance().setTitleTextAttributes(attr, forState: .Normal)
+//
+//    var attr2 = [
+//      NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBold", size: 16.0)!,
+//      NSForegroundColorAttributeName : UIColor.whiteColor()
+//    ]
+//    UISegmentedControl.appearance().setTitleTextAttributes(attr2, forState: .Selected)
+//    UISegmentedControl.appearance().tintColor = UIColor(red: 21/255.0, green: 202/255.0, blue: 249/255.0, alpha: 1)
+
     //
 //    let font = UIFont(name: "Helvetica Neue", size: 14)!
 //    segmentedControl.setTitleTextAttributes([NSFontAttributeName:font], forState: UIControlState.Normal)
@@ -79,7 +77,9 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
       var cell = tableView.dequeueReusableCellWithIdentifier("CompanyCell") as! LogoImageCellTableViewCell
 
       var contact = self.contacts[indexPath.row]
-      cell.logoImageView.image = contact.logoImage
+      cell.textLabel?.text = contact.username
+      cell.detailTextLabel?.text = contact.website
+//      cell.logoImageView.image = contact.logoImage
       return cell
     }
   }
@@ -101,10 +101,12 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
       tableView.reloadData()
       contactsTableView.hidden = true
       tableView.hidden = false
-    } else {
+    } else if sender.selectedSegmentIndex == 1{
       contactsTableView.reloadData()
       tableView.hidden = true
       contactsTableView.hidden = false
+    } else {
+      performSegueWithIdentifier("addSegue", sender: self)
     }
   }
   
@@ -122,7 +124,38 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
         controller.contacts = objects as! [User]
         controller.allContactsTableview.reloadData()
       }
-    } else {
+    } else if true {
+      var controller = segue.destinationViewController as! WebsiteViewController
+      controller.user = user
+
+      
+      if segmentedControl.selectedSegmentIndex == 0 {
+        var index = self.tableView.indexPathForSelectedRow()!
+        controller.conversation = conversations[index.row]
+        controller.website = controller.conversation!.otherUsers(user!).first?.website
+
+        controller.loadConversation()
+      } else {
+        var index = self.contactsTableView.indexPathForSelectedRow()!
+        
+        let people = [self.user!, self.contacts[index.row]]
+        Conversation.findConversations( people, block: {
+          (conversations) in
+          if conversations.count == 0 {
+            controller.conversation = Conversation.create(people)
+          } else {
+            controller.conversation = conversations.last!
+          }
+          controller.website = controller.conversation!.otherUsers(controller.user!).first?.website
+          controller.webview.loadRequest(NSURLRequest(URL: NSURL(string: "http://" + controller.website!)!))
+
+          controller.loadConversation()
+        })
+      }
+    
+    }
+    
+    else {
       var controller = segue.destinationViewController as! MessagesViewController
       controller.user = user
       

@@ -31,8 +31,9 @@ class WebsiteViewController: ApplicationViewController, UITextFieldDelegate, UIW
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
-    webview.loadRequest(NSURLRequest(URL: NSURL(string: "http://" + website!)!))
+    if website != nil {
+      webview.loadRequest(NSURLRequest(URL: NSURL(string: "http://" + website!)!))
+    }
     webview.delegate = self
     self.tableView.delegate = self
     self.tableView.dataSource = self

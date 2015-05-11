@@ -18,7 +18,7 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
   var frontImage : UIImage?
   var frontImagePicker = UIImagePickerController()
   
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     logoImagePicker.delegate = self
@@ -26,12 +26,12 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
     
     signupView.hidden = true
     
-//    
-//    if let currentUser = PFUser.currentUser() {
-//      presentMainViewController(currentUser.username!)
-//    }
+    
+    if let currentUser = PFUser.currentUser() {
+      presentMainViewController(currentUser.username!)
+    }
   }
-
+  
   
   @IBAction func logInPressed(sender: UIButton) {
     if usernameTextField.text == "" || pwdTextField.text == "" {
@@ -59,7 +59,10 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
     query.getFirstObjectInBackgroundWithBlock() {
       (object, error) in
       self.user = object as! User?
-       self.performSegueWithIdentifier("login", sender: self)
+      
+      if self.user != nil {
+        self.performSegueWithIdentifier("login", sender: self)
+      }
     }
   }
   
@@ -98,12 +101,12 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
           self.user?.frontImage = self.frontImage
           self.user?.logoImage = self.logoImage
           self.user?.saveInBackground()
-
+          
           self.performSegueWithIdentifier("login", sender: self)
-
+          
           
         } else {
-//          let errorString = error.userInfo["error"] as NSString
+          //          let errorString = error.userInfo["error"] as NSString
           // Show the errorString somewhere and let the user try again.
         }
       }
@@ -111,8 +114,7 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    var navigationController = segue.destinationViewController as! UINavigationController
-    var controller = navigationController.topViewController as! ContactViewController
+    var controller = segue.destinationViewController as! ContactViewController
     controller.user = self.user
     controller.conversations = conversations
   }

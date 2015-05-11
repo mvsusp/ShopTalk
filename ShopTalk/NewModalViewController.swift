@@ -20,6 +20,8 @@ class NewModalViewController: ApplicationViewController , UITableViewDelegate, U
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     user!.createContact(contacts[indexPath.row])
+    
+    self.mainController?.segmentedControl.selectedSegmentIndex = 1
     self.dismissViewControllerAnimated(true, completion: {
       self.mainController?.contacts = self.user!.contacts
       self.mainController?.contactsTableView.reloadData()
@@ -28,7 +30,8 @@ class NewModalViewController: ApplicationViewController , UITableViewDelegate, U
   
   
   @IBAction func dismissModal(sender: UIBarButtonItem) {
-    self.dismissViewControllerAnimated(true, completion: {})
+    self.mainController?.segmentedControl.selectedSegmentIndex = 1
+    self.dismissViewControllerAnimated(true, completion: {(_) in })
   }
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
