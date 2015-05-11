@@ -26,9 +26,10 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
     
     signupView.hidden = true
     
-    if let currentUser = PFUser.currentUser() {
-      presentMainViewController(currentUser.username!)
-    }
+//    
+//    if let currentUser = PFUser.currentUser() {
+//      presentMainViewController(currentUser.username!)
+//    }
   }
 
   

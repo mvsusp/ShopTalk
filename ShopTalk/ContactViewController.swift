@@ -18,6 +18,26 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
     self.contactsTableView.delegate = self
     self.contactsTableView.dataSource = self
     self.contactsTableView.hidden = true
+    
+    var attr = [
+      NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBold", size: 16.0)!,
+      NSForegroundColorAttributeName : UIColor(red: 21/255.0, green: 202/255.0, blue: 249/255.0, alpha: 1)
+    ]
+    UISegmentedControl.appearance().setTitleTextAttributes(attr, forState: .Normal)
+    
+    var attr2 = [
+      NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBold", size: 16.0)!,
+      NSForegroundColorAttributeName : UIColor.whiteColor()
+    ]
+    UISegmentedControl.appearance().setTitleTextAttributes(attr2, forState: .Selected)
+    UISegmentedControl.appearance().tintColor = UIColor(red: 21/255.0, green: 202/255.0, blue: 249/255.0, alpha: 1)
+    
+    self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+    
+    self.navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+    //
+//    let font = UIFont(name: "Helvetica Neue", size: 14)!
+//    segmentedControl.setTitleTextAttributes([NSFontAttributeName:font], forState: UIControlState.Normal)
   }
   
   override func viewWillAppear(animated: Bool) {
