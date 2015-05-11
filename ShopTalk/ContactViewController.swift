@@ -70,15 +70,18 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
       var cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! UITableViewCell
 
       var conversation = self.conversations[indexPath.row]
-      cell.textLabel?.text = conversation.otherUsers(self.user!).first!.username
+      var contact = conversation.otherUsers(self.user!).first!
+      cell.textLabel?.text = contact.username
       cell.detailTextLabel?.text = conversation.lastMessage?.content
+      cell.imageView?.image = contact.frontImage
       return cell
     } else {
       var cell = tableView.dequeueReusableCellWithIdentifier("CompanyCell") as! LogoImageCellTableViewCell
 
       var contact = self.contacts[indexPath.row]
       cell.textLabel?.text = contact.username
-      cell.detailTextLabel?.text = contact.website
+      cell.detailTextLabel?.text = contact.about
+      cell.imageView?.image = contact.logoImage
 //      cell.logoImageView.image = contact.logoImage
       return cell
     }

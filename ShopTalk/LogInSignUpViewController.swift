@@ -8,6 +8,8 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
   @IBOutlet weak var website: UITextField!
   @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var pwdTextField: UITextField!
+  
+  @IBOutlet weak var descriptionTextField: UITextView!
   var user : User?
   var conversations = [Conversation]()
   @IBOutlet weak var loginView: UIView!
@@ -27,9 +29,9 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
     signupView.hidden = true
     
     
-    if let currentUser = PFUser.currentUser() {
-      presentMainViewController(currentUser.username!)
-    }
+//    if let currentUser = PFUser.currentUser() {
+//      presentMainViewController(currentUser.username!)
+//    }
   }
   
   
@@ -100,6 +102,7 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
           self.user?.website = self.website.text
           self.user?.frontImage = self.frontImage
           self.user?.logoImage = self.logoImage
+          self.user?.about = self.descriptionTextField.text
           self.user?.saveInBackground()
           
           self.performSegueWithIdentifier("login", sender: self)
