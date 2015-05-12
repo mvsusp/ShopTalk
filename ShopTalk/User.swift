@@ -51,7 +51,7 @@ class User : PFObject, PFSubclassing {
         
         return newImage
       }
-      return nil
+      return drawLogo()
     }
     
     set(image) {
@@ -62,6 +62,19 @@ class User : PFObject, PFSubclassing {
       let data = UIImageJPEGRepresentation(image!, 0.5)
       logoImageData = data
     }
+  }
+  
+  func drawLogo() -> UIImage {
+    let image =  UIImage(named: "placeholder.png")!
+    
+    
+    let newSize = CGSizeMake(50, 50)
+    UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+    image.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+    let newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage
   }
   
   static func parseClassName() -> String {

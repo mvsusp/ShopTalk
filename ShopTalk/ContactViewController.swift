@@ -152,19 +152,10 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
       var controller = segue.destinationViewController as! WebsiteViewController
       controller.user = user
       
-      
       if segmentedControl.selectedSegmentIndex == 1 {
         var index = self.tableView.indexPathForSelectedRow()!
         
-        //        if index.section == 0 {
         controller.conversation = conversations[index.row]
-        //        } else {
-        //          let brand = self.brands[index.row]
-        //          user!.createContact(brand)
-        //          let conversation = Conversation.create([brand, user!])
-        //          controller.conversation = conversation
-        //
-        //        }
         controller.website = controller.conversation!.otherUsers(user!).first?.website
         
         controller.loadConversation()

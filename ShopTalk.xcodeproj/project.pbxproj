@@ -13,6 +13,7 @@
 		810D39881B002DF200DBE9E2 /* frontpage.png in Resources */ = {isa = PBXBuildFile; fileRef = 810D39871B002DF200DBE9E2 /* frontpage.png */; };
 		811979991AEAACB5005AA3A5 /* MyMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */; };
 		811A55971AE728FA00721D0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811A55961AE728FA00721D0D /* User.swift */; };
+		813ACBFE1B019E2500A2C51C /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 813ACBFD1B019E2500A2C51C /* placeholder.png */; };
 		814D000D1AF9992D00154A60 /* TheyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814D000C1AF9992D00154A60 /* TheyMessageCell.swift */; };
 		81C3015E1AFE7D860051FA5E /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3015D1AFE7D860051FA5E /* ApplicationViewController.swift */; };
 		81C301601AFEA69A0051FA5E /* LogoImageCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3015F1AFEA69A0051FA5E /* LogoImageCellTableViewCell.swift */; };
@@ -64,6 +65,7 @@
 		810D39871B002DF200DBE9E2 /* frontpage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frontpage.png; sourceTree = "<group>"; };
 		811979981AEAACB5005AA3A5 /* MyMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMessageTableViewCell.swift; sourceTree = "<group>"; };
 		811A55961AE728FA00721D0D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		813ACBFD1B019E2500A2C51C /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		814D000C1AF9992D00154A60 /* TheyMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheyMessageCell.swift; sourceTree = "<group>"; };
 		81C3015D1AFE7D860051FA5E /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		81C3015F1AFEA69A0051FA5E /* LogoImageCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoImageCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				81C301761AFF0BAE0051FA5E /* closebutton.png */,
 				81C3017A1AFF1ED50051FA5E /* hibutton.png */,
 				81C301771AFF0BAE0051FA5E /* closebuttonBackground.png */,
+				813ACBFD1B019E2500A2C51C /* placeholder.png */,
 				81C301721AFEFF830051FA5E /* background.png */,
 				810D39871B002DF200DBE9E2 /* frontpage.png */,
 				810D397F1AFFDEBF00DBE9E2 /* completeclosebutton.png */,
@@ -345,6 +348,7 @@
 				81C3017B1AFF1ED50051FA5E /* hibutton.png in Resources */,
 				81C301781AFF0BAE0051FA5E /* closebutton.png in Resources */,
 				81C301791AFF0BAE0051FA5E /* closebuttonBackground.png in Resources */,
+				813ACBFE1B019E2500A2C51C /* placeholder.png in Resources */,
 				81D6EFB91AE52F3E000FDEC6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
