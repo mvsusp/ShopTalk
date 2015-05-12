@@ -42,7 +42,7 @@ class Conversation : PFObject, PFSubclassing {
   
   func otherUsers(user: User) -> [User] {
     self.fetchIfNeeded()
-    var others = people.filter({(p) in p != user})
+    var others = people.filter({(p) in p.objectId != user.objectId})
     for other in others {
       other.fetchIfNeeded()
     }
@@ -61,7 +61,7 @@ class Conversation : PFObject, PFSubclassing {
     saveInBackgroundWithBlock() {
       (success) in
       let push = PFPush()
-      let channels = self.otherUsers(message.author).map({$0.username})
+      let channels = self.otherUsers(message.author).map({$0.objectId!})
       push.setChannels(channels)
       
       let data = [

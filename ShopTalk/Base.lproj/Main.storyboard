@@ -92,7 +92,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VzH-qm-8IU" userLabel="MessagesTableView">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VzH-qm-8IU" userLabel="MessagesTableView">
                                 <rect key="frame" x="1" y="70" width="599" height="530"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="ContactCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="kON-Lq-O4t" detailTextLabel="418-Kl-UL5" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="c98-i6-hcc">
@@ -155,11 +155,10 @@
                                 <rect key="frame" x="1" y="0.0" width="599" height="70"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yDK-th-p8t">
-                                        <rect key="frame" x="174" y="26" width="251" height="29"/>
+                                        <rect key="frame" x="224" y="26" width="151" height="29"/>
                                         <segments>
+                                            <segment title="Brands"/>
                                             <segment title="Messages"/>
-                                            <segment title="Contacts"/>
-                                            <segment title="Companies"/>
                                         </segments>
                                         <connections>
                                             <action selector="valueChanged:" destination="Ahn-tS-jfw" eventType="valueChanged" id="Bq3-2Y-afR"/>
@@ -850,6 +849,6 @@
         <image name="hibutton.png" width="135" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nxN-KE-XbC"/>
+        <segue reference="s9x-vN-vsG"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,7 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // [Optional] Power your app with Local Datastore. For more info, go to
     // https://parse.com/docs/ios_guide#localdatastore/iOS
-    Parse.enableLocalDatastore()
+    
+//    Parse.enableLocalDatastore()
     
     // Initialize Parse.
     Parse.setApplicationId("x9mZm65n8i0chRs0tztvmEcl800xfnYlOv2zrYZi",
@@ -27,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Message.registerSubclass()
     Conversation.registerSubclass()
     
+//    PFUser.enableRevocableSessionInBackground()
+//    PFUser.logOut()
+
     return true
   }
   

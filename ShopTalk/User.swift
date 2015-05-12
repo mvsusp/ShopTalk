@@ -82,7 +82,7 @@ class User : PFObject, PFSubclassing {
     user.save()
     
     let currentInstallation = PFInstallation.currentInstallation()
-    currentInstallation.addUniqueObject("\(user.username)", forKey: "channels")
+    currentInstallation.addUniqueObject("\(user.objectId!)", forKey: "channels")
     currentInstallation.saveInBackground()
     
     return user

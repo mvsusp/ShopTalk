@@ -55,13 +55,17 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
       }
     }
   }
+
   
   func presentMainViewController(username: String) {
+        
     var query = PFQuery(className: "User").includeKey("contacts").whereKey("username", equalTo: username)
     query.getFirstObjectInBackgroundWithBlock() {
       (object, error) in
       self.user = object as! User?
-      
+      let currentInstallation = PFInstallation.currentInstallation()
+      currentInstallation.addUniqueObject("\(self.user!.objectId!)", forKey: "channels")
+      currentInstallation.saveInBackground()
       if self.user != nil {
         self.performSegueWithIdentifier("login", sender: self)
       }

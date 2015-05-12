@@ -8,6 +8,7 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
   @IBOutlet weak var contactsTableView: UITableView!
   var conversations = [Conversation]()
   var contacts = [User]()
+  var brands = [User]()
   var user : User?
   
   override func viewDidLoad() {
@@ -17,25 +18,6 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
     self.tableView.dataSource = self
     self.contactsTableView.delegate = self
     self.contactsTableView.dataSource = self
-    self.contactsTableView.hidden = true
-    
-//    var attr = [
-//      NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBold", size: 16.0)!
-//      ,
-//      NSForegroundColorAttributeName : UIColor(red: 21/255.0, green: 202/255.0, blue: 249/255.0, alpha: 1)
-//    ]
-//    UISegmentedControl.appearance().setTitleTextAttributes(attr, forState: .Normal)
-//
-//    var attr2 = [
-//      NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBold", size: 16.0)!,
-//      NSForegroundColorAttributeName : UIColor.whiteColor()
-//    ]
-//    UISegmentedControl.appearance().setTitleTextAttributes(attr2, forState: .Selected)
-//    UISegmentedControl.appearance().tintColor = UIColor(red: 21/255.0, green: 202/255.0, blue: 249/255.0, alpha: 1)
-
-    //
-//    let font = UIFont(name: "Helvetica Neue", size: 14)!
-//    segmentedControl.setTitleTextAttributes([NSFontAttributeName:font], forState: UIControlState.Normal)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -49,9 +31,18 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
       self.contacts = self.user!.contacts
       self.tableView.reloadData()
       self.contactsTableView.reloadData()
+      
+      var existingContacts = self.contacts.map({ $0.username })
+      existingContacts.append(self.user!.username)
+      User.query()?.whereKey("username", notContainedIn: existingContacts).findObjectsInBackgroundWithBlock() {
+        (objects, error) in
+        
+        self.brands = objects as! [User]
+        self.contactsTableView.reloadData()
+      }
     }
   }
-
+  
   override func messageArrived(notification: NSNotification) {
     super.messageArrived(notification)
     reloadData()
@@ -61,14 +52,40 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
     super.didReceiveMemoryWarning()
   }
   
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    if tableView == contactsTableView {
+      return 2
+    } else {
+      return 1
+    }
+  }
+  
+  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    if segmentedControl.selectedSegmentIndex == 0 && section == 0 && contacts.count > 0 {
+      return "Favorites"
+    }
+    if segmentedControl.selectedSegmentIndex == 0 && section == 1 && brands.count > 0 {
+      return "Brands"
+    }
+    return nil
+  }
+  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return tableView == self.tableView ? conversations.count : contacts.count
+    if tableView == self.tableView {
+      return conversations.count
+    }
+    
+    if section == 0 {
+      return contacts.count
+    } else {
+      return brands.count
+    }
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     if tableView == self.tableView {
       var cell = tableView.dequeueReusableCellWithIdentifier("ContactCell") as! UITableViewCell
-
+      
       var conversation = self.conversations[indexPath.row]
       var contact = conversation.otherUsers(self.user!).first!
       cell.textLabel?.text = contact.username
@@ -79,14 +96,14 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
       return cell
     } else {
       var cell = tableView.dequeueReusableCellWithIdentifier("CompanyCell") as! LogoImageCellTableViewCell
-
-      var contact = self.contacts[indexPath.row]
+      
+      var contact = indexPath.section == 0 ? self.contacts[indexPath.row] : self.brands[indexPath.row]
       cell.textLabel?.text = contact.username
       cell.detailTextLabel?.text = contact.about
       cell.imageView?.layer.cornerRadius = 3
       cell.imageView?.layer.masksToBounds = true
       cell.imageView?.image = contact.logoImage
-
+      
       return cell
     }
   }
@@ -101,14 +118,14 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
       
     }
   }
-
+  
   
   @IBAction func valueChanged(sender: UISegmentedControl) {
-    if sender.selectedSegmentIndex == 0 {
+    if sender.selectedSegmentIndex == 1 {
       tableView.reloadData()
       contactsTableView.hidden = true
       tableView.hidden = false
-    } else if sender.selectedSegmentIndex == 1{
+    } else if sender.selectedSegmentIndex == 0 {
       contactsTableView.reloadData()
       tableView.hidden = true
       contactsTableView.hidden = false
@@ -131,20 +148,41 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
         controller.contacts = objects as! [User]
         controller.allContactsTableview.reloadData()
       }
-    } else if true {
+    } else {
       var controller = segue.destinationViewController as! WebsiteViewController
       controller.user = user
-
       
-      if segmentedControl.selectedSegmentIndex == 0 {
+      
+      if segmentedControl.selectedSegmentIndex == 1 {
         var index = self.tableView.indexPathForSelectedRow()!
+        
+        //        if index.section == 0 {
         controller.conversation = conversations[index.row]
+        //        } else {
+        //          let brand = self.brands[index.row]
+        //          user!.createContact(brand)
+        //          let conversation = Conversation.create([brand, user!])
+        //          controller.conversation = conversation
+        //
+        //        }
         controller.website = controller.conversation!.otherUsers(user!).first?.website
-
+        
         controller.loadConversation()
       } else {
         var index = self.contactsTableView.indexPathForSelectedRow()!
+        ////
+        if index.section == 1 {
+          
+          let brand = self.brands[index.row]
+          user!.createContact(brand)
+          let conversation = Conversation.create([brand, user!])
+          controller.conversation = conversation
+          controller.website = brand.website
+          controller.loadConversation()
+          return
+        }
         
+        ///
         let people = [self.user!, self.contacts[index.row]]
         Conversation.findConversations( people, block: {
           (conversations) in
@@ -155,35 +193,11 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
           }
           controller.website = controller.conversation!.otherUsers(controller.user!).first?.website
           controller.webview.loadRequest(NSURLRequest(URL: NSURL(string: "http://" + controller.website!)!))
-
+          
           controller.loadConversation()
         })
       }
-    
-    }
-    
-    else {
-      var controller = segue.destinationViewController as! MessagesViewController
-      controller.user = user
       
-      if segmentedControl.selectedSegmentIndex == 0 {
-        var index = self.tableView.indexPathForSelectedRow()!
-        controller.conversation = conversations[index.row]
-        controller.loadConversation()
-      } else {
-        var index = self.contactsTableView.indexPathForSelectedRow()!
-
-        let people = [self.user!, self.contacts[index.row]]
-        Conversation.findConversations( people, block: {
-          (conversations) in
-          if conversations.count == 0 {
-            controller.conversation = Conversation.create(people)
-          } else {
-            controller.conversation = conversations.last!
-          }
-          controller.loadConversation()
-        })
-      }
     }
   }
 }
