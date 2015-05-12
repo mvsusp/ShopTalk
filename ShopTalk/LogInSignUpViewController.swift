@@ -15,6 +15,12 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
   @IBOutlet weak var loginView: UIView!
   @IBOutlet weak var signupView: UIView!
   
+  @IBOutlet weak var mainButton: UIButton!
+  
+  
+  @IBOutlet weak var segmentControl: UISegmentedControl!
+  @IBOutlet weak var userLogo: UIImageView!
+  
   var logoImage : UIImage?
   var logoImagePicker = UIImagePickerController()
   var frontImage : UIImage?
@@ -27,13 +33,28 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
     frontImagePicker.delegate = self
     
     signupView.hidden = true
+    segmentControl.hidden = true
     
-    
+    if let currentUser = PFUser.currentUser() {
+      User.find(currentUser.username!) {
+        (user) in
+        self.mainButton.setTitle("Log in", forState: .Normal)
+        
+        self.userLogo.image = user.logoImage
+      }
+    }
+  }
+  
+  @IBAction func logInImagePressed(sender: UITapGestureRecognizer) {
+    self.loginView.hidden = false
+    self.segmentControl.hidden = false
+  }
+  
+  @IBAction func mainButtonPressed(sender: UIButton) {
     if let currentUser = PFUser.currentUser() {
       presentMainViewController(currentUser.username!)
     }
   }
-  
   
   @IBAction func logInPressed(sender: UIButton) {
     if usernameTextField.text == "" || pwdTextField.text == "" {
@@ -58,11 +79,10 @@ class LogInSignUpViewController: ApplicationViewController, UIImagePickerControl
 
   
   func presentMainViewController(username: String) {
-        
-    var query = PFQuery(className: "User").includeKey("contacts").whereKey("username", equalTo: username)
-    query.getFirstObjectInBackgroundWithBlock() {
-      (object, error) in
-      self.user = object as! User?
+    
+    User.find(username) {
+      (user) in
+      self.user = user
       let currentInstallation = PFInstallation.currentInstallation()
       currentInstallation.addUniqueObject("\(self.user!.objectId!)", forKey: "channels")
       currentInstallation.saveInBackground()

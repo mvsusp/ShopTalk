@@ -11,6 +11,8 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
   var brands = [User]()
   var user : User?
   
+  @IBOutlet weak var userLogoButton: UIButton!
+  
   @IBOutlet weak var searchBar: UISearchBar!
   
   
@@ -22,6 +24,9 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
     self.tableView.dataSource = self
     self.contactsTableView.delegate = self
     self.contactsTableView.dataSource = self
+
+    userLogoButton.setImage(user!.logoImage, forState: .Normal)
+    self.view.layoutSubviews()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -223,7 +228,9 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "addSegue" {
+    if segue.identifier == "logout" {
+      PFUser.logOut()
+    } else  if segue.identifier == "addSegue" {
       var controller = segue.destinationViewController as! NewModalViewController
       controller.user = self.user
       controller.mainController = self

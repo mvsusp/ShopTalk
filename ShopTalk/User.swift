@@ -92,7 +92,7 @@ class User : PFObject, PFSubclassing {
   }
   
   static func find(username: String, block: (User) -> Void) {
-    query()?.whereKey("username", equalTo: username).getFirstObjectInBackgroundWithBlock() {
+    query()?.includeKey("contacts").whereKey("username", equalTo: username).getFirstObjectInBackgroundWithBlock() {
       (object, error) in
       let user = object as! User
       block(user)

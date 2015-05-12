@@ -23,6 +23,7 @@
 		81C301781AFF0BAE0051FA5E /* closebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C301761AFF0BAE0051FA5E /* closebutton.png */; };
 		81C301791AFF0BAE0051FA5E /* closebuttonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C301771AFF0BAE0051FA5E /* closebuttonBackground.png */; };
 		81C3017B1AFF1ED50051FA5E /* hibutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C3017A1AFF1ED50051FA5E /* hibutton.png */; };
+		81D1D6401B022FE60081092F /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D1D63F1B022FE60081092F /* login.png */; };
 		81D6EFB21AE52F3E000FDEC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */; };
 		81D6EFB41AE52F3E000FDEC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6EFB31AE52F3E000FDEC6 /* ContactViewController.swift */; };
 		81D6EFB71AE52F3E000FDEC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D6EFB51AE52F3E000FDEC6 /* Main.storyboard */; };
@@ -75,6 +76,7 @@
 		81C301761AFF0BAE0051FA5E /* closebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closebutton.png; sourceTree = "<group>"; };
 		81C301771AFF0BAE0051FA5E /* closebuttonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closebuttonBackground.png; sourceTree = "<group>"; };
 		81C3017A1AFF1ED50051FA5E /* hibutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hibutton.png; sourceTree = "<group>"; };
+		81D1D63F1B022FE60081092F /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		81D6EFAC1AE52F3E000FDEC6 /* ShopTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D6EFB01AE52F3E000FDEC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81D6EFB11AE52F3E000FDEC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				81C301761AFF0BAE0051FA5E /* closebutton.png */,
 				81C3017A1AFF1ED50051FA5E /* hibutton.png */,
 				81C301771AFF0BAE0051FA5E /* closebuttonBackground.png */,
+				81D1D63F1B022FE60081092F /* login.png */,
 				813ACBFD1B019E2500A2C51C /* placeholder.png */,
 				81C301721AFEFF830051FA5E /* background.png */,
 				810D39871B002DF200DBE9E2 /* frontpage.png */,
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				810D39881B002DF200DBE9E2 /* frontpage.png in Resources */,
+				81D1D6401B022FE60081092F /* login.png in Resources */,
 				81D6EFB71AE52F3E000FDEC6 /* Main.storyboard in Resources */,
 				81C301751AFEFF830051FA5E /* button.png in Resources */,
 				810D39801AFFDEBF00DBE9E2 /* completeclosebutton.png in Resources */,
