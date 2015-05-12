@@ -5,7 +5,7 @@ class User : PFObject, PFSubclassing {
   
   @NSManaged var contacts: [User]
   @NSManaged var username: String
-  @NSManaged var about: String
+  @NSManaged var about: String?
   @NSManaged var website: String
   @NSManaged var frontImageData: NSData?
   @NSManaged var logoImageData: NSData?

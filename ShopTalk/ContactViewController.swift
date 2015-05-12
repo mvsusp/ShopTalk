@@ -1,7 +1,7 @@
 import UIKit
 import Parse
 
-class ContactViewController: ApplicationViewController, UITableViewDelegate, UITableViewDataSource {
+class ContactViewController: ApplicationViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
   
   @IBOutlet weak var segmentedControl: UISegmentedControl!
   @IBOutlet weak var tableView: UITableView!
@@ -11,9 +11,13 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
   var brands = [User]()
   var user : User?
   
+  @IBOutlet weak var searchBar: UISearchBar!
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.searchBar.delegate = self
     self.tableView.delegate = self
     self.tableView.dataSource = self
     self.contactsTableView.delegate = self
@@ -134,8 +138,72 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
     }
   }
   
+  func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    self.searchBar.resignFirstResponder()
+  }
+  
+  
+  var tempContacts = [User]()
+  var tempBrands = [User]()
+  func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+    self.tempContacts = self.contacts
+    self.tempBrands = self.brands
+    
+    return true
+  }
+  
+  func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    if searchText == "" {
+      self.contacts = self.tempContacts
+      self.brands = self.tempBrands
+    } else {
+      
+      var lowercaseText = searchText.lowercaseString
+      self.contacts = self.contacts.filter({
+        (t) in
+        return t.website.lowercaseString.rangeOfString(lowercaseText) != nil ||
+          t.username.lowercaseString.rangeOfString(lowercaseText) != nil
+      })
+      
+      self.brands = self.brands.filter({
+        (t) in
+        return t.website.lowercaseString.rangeOfString(lowercaseText) != nil ||
+          t.username.lowercaseString.rangeOfString(lowercaseText) != nil
+      })
+    }
+    self.contactsTableView.reloadData()
+  }
+  
+  func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    self.contacts = self.tempContacts
+    self.brands = self.tempBrands
+    self.searchBar.text = ""
+    self.searchBar.resignFirstResponder()
+    self.contactsTableView.reloadData()
+  }
+  
+  func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+
+    
+    self.performSegueWithIdentifier("search", sender: self)
+
+  }
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "addSegue" {
+    if segue.identifier == "search" {
+      let newBrand = User.create(searchBar.text)
+      newBrand.website = searchBar.text
+      newBrand.saveInBackground()
+      
+      let conversation = Conversation.create([user!, newBrand])
+      
+      let controller = WebsiteViewController()
+      controller.conversation = conversation
+      controller.website = newBrand.website
+      controller.user = user
+      
+      controller.loadConversation()
+    } else if segue.identifier == "addSegue" {
       var controller = segue.destinationViewController as! NewModalViewController
       controller.user = self.user
       controller.mainController = self

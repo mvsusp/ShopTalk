@@ -122,8 +122,13 @@
                                 </prototypes>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mI3-52-KLz" userLabel="ContactsTableView">
-                                <rect key="frame" x="1" y="70" width="599" height="530"/>
+                                <rect key="frame" x="0.0" y="70" width="600" height="530"/>
                                 <gestureRecognizers/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="vbk-0o-HJv">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CompanyCell" textLabel="3pK-RE-ZFD" detailTextLabel="i6A-8Q-N7W" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="rBc-mu-Z3v" customClass="LogoImageCellTableViewCell" customModule="ShopTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="599" height="44"/>
@@ -175,21 +180,34 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vRu-6h-6ma" firstAttribute="top" secondItem="mI3-52-KLz" secondAttribute="bottom" id="3aX-76-HIF"/>
                             <constraint firstItem="VzH-qm-8IU" firstAttribute="top" secondItem="Blm-1E-3L6" secondAttribute="bottom" constant="50" id="4AK-bV-oQn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pNA-qU-fST" secondAttribute="trailing" constant="-16" id="4RN-mQ-Jue"/>
                             <constraint firstItem="mI3-52-KLz" firstAttribute="centerX" secondItem="VzH-qm-8IU" secondAttribute="centerX" id="Cgk-Qh-SqW"/>
+                            <constraint firstItem="mI3-52-KLz" firstAttribute="top" secondItem="pNA-qU-fST" secondAttribute="bottom" id="Kgh-R2-lvR"/>
                             <constraint firstItem="pNA-qU-fST" firstAttribute="leading" secondItem="YUK-6E-g84" secondAttribute="leadingMargin" constant="-15" id="MEU-fO-lH4"/>
                             <constraint firstAttribute="bottomMargin" secondItem="VzH-qm-8IU" secondAttribute="bottom" id="Mpk-oY-cI9"/>
                             <constraint firstAttribute="trailing" secondItem="VzH-qm-8IU" secondAttribute="trailing" id="RAs-zj-J7S"/>
+                            <constraint firstItem="mI3-52-KLz" firstAttribute="leading" secondItem="YUK-6E-g84" secondAttribute="leadingMargin" constant="-16" id="TiP-x3-eDG"/>
                             <constraint firstItem="pNA-qU-fST" firstAttribute="top" secondItem="Blm-1E-3L6" secondAttribute="bottom" constant="-20" id="VvH-qh-Hew"/>
                             <constraint firstItem="mI3-52-KLz" firstAttribute="width" secondItem="VzH-qm-8IU" secondAttribute="width" id="ZRK-zN-ABp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mI3-52-KLz" secondAttribute="trailing" constant="-16" id="dA8-qj-nff"/>
                             <constraint firstItem="mI3-52-KLz" firstAttribute="height" secondItem="VzH-qm-8IU" secondAttribute="height" id="kU5-25-n5S"/>
                             <constraint firstItem="VzH-qm-8IU" firstAttribute="leadingMargin" secondItem="YUK-6E-g84" secondAttribute="leadingMargin" id="mPN-qX-cFq"/>
                             <constraint firstItem="mI3-52-KLz" firstAttribute="centerY" secondItem="VzH-qm-8IU" secondAttribute="centerY" id="pzE-8C-svv"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Cgk-Qh-SqW"/>
+                                <exclude reference="ZRK-zN-ABp"/>
+                                <exclude reference="kU5-25-n5S"/>
+                                <exclude reference="pzE-8C-svv"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="contactsTableView" destination="mI3-52-KLz" id="Zlz-rR-dXo"/>
+                        <outlet property="searchBar" destination="vbk-0o-HJv" id="Xe7-KQ-Iyk"/>
                         <outlet property="segmentedControl" destination="yDK-th-p8t" id="WyJ-Fg-aZQ"/>
                         <outlet property="tableView" destination="VzH-qm-8IU" id="O6t-z2-0GO"/>
                     </connections>
@@ -849,6 +867,6 @@
         <image name="hibutton.png" width="135" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="s9x-vN-vsG"/>
+        <segue reference="0CL-WF-n81"/>
     </inferredMetricsTieBreakers>
 </document>
