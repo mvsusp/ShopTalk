@@ -40,6 +40,22 @@ class Conversation : PFObject, PFSubclassing {
     }
   }
   
+  class func destroyAll(user: User) {
+    let query = self.query()!.whereKey("people", containsAllObjectsInArray: [user])
+    query.findObjectsInBackgroundWithBlock() {
+      (objects, error) in
+      for object in objects as! [Conversation]  {
+        object.findMessages({(messages) in
+          for message in messages {
+            message.deleteInBackground()
+          }
+        
+        })
+        object.deleteInBackground()
+      }
+    }
+  }
+  
   func otherUsers(user: User) -> [User] {
     self.fetchIfNeeded()
     var others = people.filter({(p) in p.objectId != user.objectId})

@@ -81,6 +81,16 @@ class User : PFObject, PFSubclassing {
     return "User"
   }
   
+  class func removeFromContacts(user: User) {
+      let query = self.query()!.whereKey("contacts", containsAllObjectsInArray: [user])
+      query.findObjectsInBackgroundWithBlock() {
+        (objects, error) in
+        for object in objects as! [User]  {
+          object.removeContact(user)
+        }
+      }
+  }
+  
   static func find(username: String, block: (User) -> Void) {
     query()?.whereKey("username", equalTo: username).getFirstObjectInBackgroundWithBlock() {
       (object, error) in

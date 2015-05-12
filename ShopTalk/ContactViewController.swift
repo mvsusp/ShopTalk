@@ -114,8 +114,29 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
   
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == UITableViewCellEditingStyle.Delete && tableView == self.contactsTableView {
-      user?.removeContact(contacts[indexPath.row])
-      self.contacts = user!.contacts
+      
+      var contact: User?
+      if indexPath.section == 0 {
+        contact = contacts[indexPath.row]
+        contacts.removeAtIndex(indexPath.row)
+      } else if indexPath.section == 1 {
+        contact = brands[indexPath.row]
+        brands.removeAtIndex(indexPath.row)
+      }
+      
+      if contact == nil {
+        return
+      }
+      
+      Conversation.destroyAll(contact!)
+      User.removeFromContacts(contact!)
+      contact!.deleteInBackground()
+      
+      self.user?.contacts = contacts
+      self.user?.saveInBackground()
+      
+      self.tableView.reloadData()
+      
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
       
     } else if editingStyle == UITableViewCellEditingStyle.Insert {
@@ -183,27 +204,26 @@ class ContactViewController: ApplicationViewController, UITableViewDelegate, UIT
   }
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-
+    let newBrand = User.create(searchBar.text)
+    newBrand.website = searchBar.text
+    newBrand.saveInBackground()
+    user?.createContact(newBrand)
     
-    self.performSegueWithIdentifier("search", sender: self)
-
+    let conversation = Conversation.create([user!, newBrand])
+    
+    var controller = self.storyboard?.instantiateViewControllerWithIdentifier("websiteViewController") as! WebsiteViewController
+    controller.conversation = conversation
+    controller.website = newBrand.website
+    controller.user = user
+    
+    controller.loadConversation()
+    
+    self.presentViewController(controller, animated: true, completion: nil)
+    
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "search" {
-      let newBrand = User.create(searchBar.text)
-      newBrand.website = searchBar.text
-      newBrand.saveInBackground()
-      
-      let conversation = Conversation.create([user!, newBrand])
-      
-      let controller = WebsiteViewController()
-      controller.conversation = conversation
-      controller.website = newBrand.website
-      controller.user = user
-      
-      controller.loadConversation()
-    } else if segue.identifier == "addSegue" {
+    if segue.identifier == "addSegue" {
       var controller = segue.destinationViewController as! NewModalViewController
       controller.user = self.user
       controller.mainController = self

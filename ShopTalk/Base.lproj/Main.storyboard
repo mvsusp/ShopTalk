@@ -151,7 +151,7 @@
                                             <gestureRecognizers/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="th0-49-mFn" kind="show" id="0CL-WF-n81"/>
+                                            <segue destination="th0-49-mFn" kind="show" id="KCG-7t-Ghh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -210,6 +210,7 @@
                         <outlet property="searchBar" destination="vbk-0o-HJv" id="Xe7-KQ-Iyk"/>
                         <outlet property="segmentedControl" destination="yDK-th-p8t" id="WyJ-Fg-aZQ"/>
                         <outlet property="tableView" destination="VzH-qm-8IU" id="O6t-z2-0GO"/>
+                        <segue destination="th0-49-mFn" kind="show" id="fZT-LB-PVx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4F-0r-C0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -386,7 +387,7 @@
         <!--Website View Controller-->
         <scene sceneID="0rJ-JC-8HL">
             <objects>
-                <viewController id="th0-49-mFn" customClass="WebsiteViewController" customModule="ShopTalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="websiteViewController" id="th0-49-mFn" customClass="WebsiteViewController" customModule="ShopTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tVM-19-mgQ"/>
                         <viewControllerLayoutGuide type="bottom" id="AEK-4k-TxX"/>
@@ -867,6 +868,6 @@
         <image name="hibutton.png" width="135" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0CL-WF-n81"/>
+        <segue reference="s9x-vN-vsG"/>
     </inferredMetricsTieBreakers>
 </document>
